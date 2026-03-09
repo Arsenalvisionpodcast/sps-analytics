@@ -187,7 +187,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.7 }}
           >
             {[
-              { icon: '🔗', label: '500+ retailer connections' },
+              { icon: '🔗', label: 'Thousands of retailers & distributors' },
               { icon: '📦', label: 'Item & store-level data' },
               { icon: '❄️', label: 'Snowflake / Databricks ready' },
             ].map((badge) => (

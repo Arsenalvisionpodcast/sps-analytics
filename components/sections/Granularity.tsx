@@ -21,9 +21,9 @@ const stats = [
     description: 'SPS delivers data faster than manual processes allow — often days ahead. Earlier data enables earlier decisions.',
   },
   {
-    value: '500+',
-    label: 'Retailer Sources',
-    description: 'Coverage across hundreds of retail trading partners — mass, grocery, club, specialty, and online channels.',
+    value: 'Thousands',
+    label: 'Retailers & Distributors',
+    description: 'Coverage across thousands of retail trading partners and distributors — mass, grocery, club, specialty, and online channels.',
   },
 ];
 

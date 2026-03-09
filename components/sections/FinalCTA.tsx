@@ -101,13 +101,13 @@ export default function FinalCTA() {
           transition={{ duration: 0.6, delay: 0.45 }}
         >
           <a
-            href="mailto:sales@spscommerce.com"
+            href="mailto:ebsmith@spscommerce.com"
             className="px-8 py-4 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-all duration-200 shadow-lg text-base hover:-translate-y-0.5"
           >
             Request a Demo
           </a>
           <a
-            href="mailto:sales@spscommerce.com"
+            href="mailto:ebsmith@spscommerce.com"
             className="px-8 py-4 bg-transparent text-white font-semibold rounded-xl border-2 border-white/40 hover:border-white/70 hover:bg-white/10 transition-all duration-200 text-base hover:-translate-y-0.5"
           >
             Talk to Sales
@@ -123,9 +123,9 @@ export default function FinalCTA() {
         >
           {[
             {
-              value: '500+',
-              label: 'Retailer Connections',
-              desc: 'Mass, grocery, club, specialty, and online channels covered',
+              value: 'Thousands',
+              label: 'Retailers & Distributors',
+              desc: 'Mass, grocery, club, specialty, online channels, and distributors covered',
             },
             {
               value: '20+',

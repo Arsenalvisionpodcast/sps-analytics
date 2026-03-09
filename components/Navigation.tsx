@@ -35,27 +35,18 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shadow-md shadow-blue-600/30 group-hover:shadow-blue-600/50 transition-shadow">
-              <svg viewBox="0 0 20 20" fill="white" className="w-4 h-4">
-                <path d="M3 3h6v6H3V3zm8 0h6v6h-6V3zM3 11h6v6H3v-6zm8 0h6v6h-6v-6z" />
-              </svg>
-            </div>
-            <div>
-              <span
-                className={`font-bold text-base tracking-tight transition-colors ${
-                  scrolled ? 'text-slate-900' : 'text-white'
-                }`}
-              >
-                SPS Commerce
-              </span>
-              <span
-                className={`block text-[10px] font-medium leading-none transition-colors ${
-                  scrolled ? 'text-blue-600' : 'text-blue-300'
-                }`}
-              >
-                Analytics
-              </span>
-            </div>
+            <img
+              src="/sps-logo.png"
+              alt="SPS Commerce"
+              className="h-9 w-auto"
+            />
+            <span
+              className={`font-bold text-base tracking-tight transition-colors ${
+                scrolled ? 'text-slate-900' : 'text-white'
+              }`}
+            >
+              SPS Commerce
+            </span>
           </a>
 
           {/* Desktop links */}

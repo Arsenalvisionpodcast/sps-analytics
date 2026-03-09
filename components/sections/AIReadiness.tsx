@@ -53,7 +53,7 @@ const aiCapabilities = [
 
 const dataQualityLayers = [
   { label: 'Raw Retailer Data', desc: 'Inconsistent, messy, fragmented', bad: true },
-  { label: 'SPS Collected', desc: 'Ingested from 500+ sources', bad: false },
+  { label: 'SPS Collected', desc: 'Ingested from thousands of retailers & distributors', bad: false },
   { label: 'SPS Cleansed', desc: 'Errors removed, values standardized', bad: false },
   { label: 'SPS Normalized', desc: 'Unified schema across all retailers', bad: false },
   { label: 'SPS Correlated', desc: 'Mapped to your internal hierarchy', bad: false },
