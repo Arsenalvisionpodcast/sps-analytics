@@ -36,18 +36,25 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
-            <img
-              src="/sps-logo.png"
-              alt="SPS Commerce"
-              className="h-9 w-auto"
-            />
-            <span
-              className={`font-bold text-base tracking-tight transition-colors ${
-                scrolled ? 'text-slate-900' : 'text-white'
-              }`}
-            >
-              SPS Commerce
-            </span>
+            <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-md shadow-blue-400/20 group-hover:shadow-blue-400/40 transition-shadow overflow-hidden flex-shrink-0">
+              <img src="/sps-logo-mark.png" alt="SPS Commerce" className="w-6 h-6 object-contain" />
+            </div>
+            <div>
+              <span
+                className={`font-bold text-base tracking-tight transition-colors ${
+                  scrolled ? 'text-slate-900' : 'text-white'
+                }`}
+              >
+                SPS Commerce
+              </span>
+              <span
+                className={`block text-[10px] font-medium leading-none transition-colors ${
+                  scrolled ? 'text-blue-600' : 'text-blue-300'
+                }`}
+              >
+                Analytics
+              </span>
+            </div>
           </a>
 
           {/* Desktop links */}
