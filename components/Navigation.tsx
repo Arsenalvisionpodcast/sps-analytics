@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Data Integration', href: '#two-ways' },
   { label: 'Why SPS', href: '#differentiators' },
   { label: 'AI Readiness', href: '#ai-readiness' },
+  { label: 'How It Works', href: '/pipeline' },
 ];
 
 export default function Navigation() {

@@ -10,7 +10,7 @@ const RETAILER_RECORDS = [
     fields: [
       { key: 'Dept', value: '07 – Athletic Footwear' },
       { key: 'Category', value: 'Athletic / Running' },
-      { key: 'Vendor Item', value: 'NIKE AIR FORCE 1 \'07 WHT 10M' },
+      { key: 'Vendor Item', value: 'STRYDE VELOCITY 3 BLK 10M' },
       { key: 'UPC', value: '00194501234567' },
     ],
   },
@@ -18,34 +18,34 @@ const RETAILER_RECORDS = [
     retailer: 'Target',
     color: '#A78BFA',
     fields: [
-      { key: 'TCIN', value: '12345678' },
+      { key: 'TCIN', value: '87364910' },
       { key: 'Dept Name', value: 'Mens Athletic' },
-      { key: 'Item Desc', value: 'AF1 Low Mens White 10.0' },
-      { key: 'UPC', value: '00194501234567' },
+      { key: 'Item Desc', value: 'Velocity 3 Mens Black 10.0' },
+      { key: 'UPC', value: '00847291038475' },
     ],
   },
   {
     retailer: 'Amazon',
     color: '#FBBF24',
     fields: [
-      { key: 'ASIN', value: 'B08XYZ12345' },
-      { key: 'Parent ASIN', value: 'B08XYZ00001' },
-      { key: 'Title', value: 'Nike Men\'s AF-1 WHT SZ10' },
-      { key: 'EAN', value: '00194501234567' },
+      { key: 'ASIN', value: 'B09STR12345' },
+      { key: 'Parent ASIN', value: 'B09STR00001' },
+      { key: 'Title', value: 'Stryde Men\'s VEL-3 BLK SZ10' },
+      { key: 'EAN', value: '00847291038475' },
     ],
   },
 ]
 
 const INTERNAL_RECORD = {
   fields: [
-    { key: 'Brand', value: 'Nike' },
+    { key: 'Brand', value: 'Stryde' },
     { key: 'Category', value: 'Footwear' },
-    { key: 'Subcategory', value: 'Lifestyle' },
-    { key: 'Style Name', value: 'Air Force 1 \'07' },
+    { key: 'Subcategory', value: 'Performance Running' },
+    { key: 'Style Name', value: 'Velocity 3' },
     { key: 'Gender', value: 'Mens' },
-    { key: 'Color', value: 'White' },
+    { key: 'Color', value: 'Black' },
     { key: 'Size', value: '10' },
-    { key: 'UPC', value: '00194501234567' },
+    { key: 'UPC', value: '00847291038475' },
   ],
 }
 
@@ -232,9 +232,9 @@ export default function Scene4() {
             className="flex flex-col gap-2"
           >
             {[
-              'Walmart\'s "NIKE AIR FORCE 1 \'07 WHT 10M" →  Air Force 1 \'07 / White / Mens / 10',
-              'Target\'s "AF1 Low Mens White 10.0" → same record',
-              'Amazon\'s "Nike Men\'s AF-1 WHT SZ10" → same record',
+              'Walmart\'s "STRYDE VELOCITY 3 BLK 10M" → Velocity 3 / Black / Mens / 10',
+              'Target\'s "Velocity 3 Mens Black 10.0" → same record',
+              'Amazon\'s "Stryde Men\'s VEL-3 BLK SZ10" → same record',
             ].map((text, i) => (
               <motion.div
                 key={i}

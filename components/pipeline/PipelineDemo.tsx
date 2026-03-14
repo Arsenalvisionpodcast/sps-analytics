@@ -122,15 +122,21 @@ export default function PipelineDemo() {
 
       {/* ── TOP BAR ── */}
       <div className="relative z-10 flex items-center justify-between px-8 py-4 flex-shrink-0">
-        <div className="flex items-center gap-2.5">
-          <div
-            className="w-5 h-5 rounded"
-            style={{ background: 'linear-gradient(135deg, #1851C6, #22D3EE)' }}
-          />
-          <span className="text-slate-400 text-xs font-semibold tracking-widest uppercase">
-            SPS Commerce
-          </span>
-        </div>
+        <a href="/" className="flex items-center gap-2.5 group">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shadow-md shadow-blue-600/30 group-hover:shadow-blue-600/50 transition-shadow">
+            <svg viewBox="0 0 20 20" fill="white" className="w-4 h-4">
+              <path d="M3 3h6v6H3V3zm8 0h6v6h-6V3zM3 11h6v6H3v-6zm8 0h6v6h-6v-6z" />
+            </svg>
+          </div>
+          <div>
+            <span className="text-white font-bold text-base tracking-tight group-hover:text-blue-300 transition-colors">
+              SPS Commerce
+            </span>
+            <span className="block text-[10px] font-medium leading-none text-blue-400">
+              Analytics
+            </span>
+          </div>
+        </a>
 
         {/* Progress dots */}
         <div className="flex items-center gap-2">
