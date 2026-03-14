@@ -3,13 +3,17 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
+const SIZE = 360
+const CENTER = SIZE / 2
+const RADIUS = 138
+
 const TEAM_NODES = [
-  { label: 'Analytics', icon: 'chart', color: '#60A5FA', angle: -90, radius: 175, delay: 0.4 },
-  { label: 'Demand Planning', icon: 'trend', color: '#818CF8', angle: -30, radius: 175, delay: 0.65 },
-  { label: 'Finance', icon: 'dollar', color: '#34D399', angle: 30, radius: 175, delay: 0.9 },
-  { label: 'Sales', icon: 'target', color: '#FBBF24', angle: 90, radius: 175, delay: 1.15 },
-  { label: 'Marketing', icon: 'megaphone', color: '#F472B6', angle: 150, radius: 175, delay: 1.4 },
-  { label: 'Operations', icon: 'cog', color: '#22D3EE', angle: 210, radius: 175, delay: 1.65 },
+  { label: 'Analytics', icon: 'chart', color: '#60A5FA', angle: -90, delay: 0.4 },
+  { label: 'Demand Planning', icon: 'trend', color: '#818CF8', angle: -30, delay: 0.65 },
+  { label: 'Finance', icon: 'dollar', color: '#34D399', angle: 30, delay: 0.9 },
+  { label: 'Sales', icon: 'target', color: '#FBBF24', angle: 90, delay: 1.15 },
+  { label: 'Marketing', icon: 'megaphone', color: '#F472B6', angle: 150, delay: 1.4 },
+  { label: 'Operations', icon: 'cog', color: '#22D3EE', angle: 210, delay: 1.65 },
 ]
 
 function angleToXY(angleDeg: number, radius: number) {
@@ -18,7 +22,7 @@ function angleToXY(angleDeg: number, radius: number) {
 }
 
 function TeamIcon({ icon }: { icon: string }) {
-  const paths: Record<string, JSX.Element> = {
+  const paths: Record<string, React.ReactElement> = {
     chart: (
       <g>
         <rect x="3" y="9" width="3" height="7" rx="0.5" fill="currentColor" opacity="0.7" />
@@ -74,14 +78,14 @@ export default function Scene5() {
   }, [])
 
   return (
-    <div className="w-full h-full flex items-center justify-center gap-10 px-8 py-2">
+    <div className="w-full h-full flex items-center justify-center gap-6 px-4 py-2">
 
       {/* ── LEFT: CLEAN DATA SUMMARY ── */}
       <motion.div
         initial={{ opacity: 0, x: -16 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2, duration: 0.4 }}
-        className="flex flex-col gap-3 w-52 flex-shrink-0"
+        className="flex flex-col gap-3 w-40 flex-shrink-0"
       >
         <p className="text-xs font-semibold tracking-widest text-slate-600 uppercase">
           Data delivered as
@@ -93,19 +97,19 @@ export default function Scene5() {
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 + i * 0.12 }}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-xl"
+            className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl"
             style={{
               background: 'rgba(255,255,255,0.04)',
               border: `1px solid ${intg.color}30`,
             }}
           >
             <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black flex-shrink-0"
+              className="w-7 h-7 rounded-lg flex items-center justify-center text-sm font-black flex-shrink-0"
               style={{ background: `${intg.color}20`, color: intg.color }}
             >
               {intg.logo}
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="text-white text-xs font-semibold">{intg.name}</div>
               <div className="text-slate-600 text-[10px]">Live Share</div>
             </div>
@@ -122,7 +126,7 @@ export default function Scene5() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
-          className="px-3 py-3 rounded-xl mt-1"
+          className="px-3 py-2.5 rounded-xl"
           style={{
             background: 'rgba(52,211,153,0.06)',
             border: '1px solid rgba(52,211,153,0.18)',
@@ -132,116 +136,131 @@ export default function Scene5() {
             <motion.div
               animate={{ scale: [1, 1.3, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full bg-emerald-400"
+              className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"
             />
             <span className="text-emerald-400 text-xs font-bold">Live — updates daily</span>
           </div>
-          <p className="text-xs text-slate-500 leading-relaxed">
-            No manual exports. No file transfers. Data stays current automatically.
+          <p className="text-[10px] text-slate-500 leading-relaxed">
+            No manual exports. Data stays current automatically.
           </p>
         </motion.div>
       </motion.div>
 
       {/* ── CENTER: HUB AND SPOKE ── */}
-      <div className="relative flex-shrink-0" style={{ width: 420, height: 420 }}>
+      <div
+        className="relative flex-shrink-0"
+        style={{ width: SIZE, height: SIZE }}
+      >
+        {/* SVG layer — spoke lines only, no Framer Motion transform conflicts */}
+        <svg
+          width={SIZE}
+          height={SIZE}
+          viewBox={`0 0 ${SIZE} ${SIZE}`}
+          className="absolute inset-0 pointer-events-none"
+          style={{ zIndex: 0 }}
+        >
+          {showNodes && TEAM_NODES.map((node) => {
+            const { x, y } = angleToXY(node.angle, RADIUS)
+            return (
+              <motion.line
+                key={`spoke-${node.label}`}
+                x1={CENTER}
+                y1={CENTER}
+                x2={CENTER + x}
+                y2={CENTER + y}
+                stroke={node.color}
+                strokeWidth={1}
+                strokeOpacity={0.35}
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ delay: node.delay - 0.15, duration: 0.35 }}
+              />
+            )
+          })}
+        </svg>
 
-        {/* Spoke lines — render under nodes */}
-        {showNodes && TEAM_NODES.map((node) => {
-          const { x, y } = angleToXY(node.angle, node.radius)
-          const len = node.radius - 60
-          const ux = x / node.radius
-          const uy = y / node.radius
-          return (
-            <motion.div
-              key={`spoke-${node.label}`}
-              initial={{ scaleX: 0, opacity: 0 }}
-              animate={{ scaleX: 1, opacity: 1 }}
-              transition={{ delay: node.delay - 0.15, duration: 0.35 }}
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: len,
-                height: 1,
-                background: `linear-gradient(90deg, ${node.color}60, ${node.color}20)`,
-                transformOrigin: '0 0',
-                transform: `rotate(${node.angle}deg) translateY(-0.5px)`,
-              }}
-            />
-          )
-        })}
-
-        {/* Central warehouse */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, type: 'spring', stiffness: 200, damping: 18 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center rounded-2xl z-10"
+        {/* Central warehouse — plain div for centering, motion.div for animation only */}
+        <div
+          className="absolute z-10"
           style={{
+            top: CENTER - 60,
+            left: CENTER - 60,
             width: 120,
             height: 120,
-            background: 'linear-gradient(135deg, rgba(24,81,198,0.25), rgba(34,211,238,0.15))',
-            border: '1.5px solid rgba(99,102,241,0.5)',
-            boxShadow: '0 0 60px rgba(37,99,235,0.25), 0 0 20px rgba(34,211,238,0.1)',
           }}
         >
-          {/* Outer pulse ring */}
           <motion.div
-            animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0, 0.4] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute rounded-2xl inset-0 pointer-events-none"
-            style={{ border: '1px solid rgba(99,102,241,0.4)' }}
-          />
-
-          <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center mb-1.5"
-            style={{ background: 'linear-gradient(135deg, #1851C6, #22D3EE)' }}
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, type: 'spring', stiffness: 200, damping: 18 }}
+            className="w-full h-full flex flex-col items-center justify-center rounded-2xl"
+            style={{
+              background: 'linear-gradient(135deg, rgba(24,81,198,0.25), rgba(34,211,238,0.15))',
+              border: '1.5px solid rgba(99,102,241,0.5)',
+              boxShadow: '0 0 60px rgba(37,99,235,0.25), 0 0 20px rgba(34,211,238,0.1)',
+            }}
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <rect x="3" y="5" width="14" height="10" rx="2" stroke="white" strokeWidth="1.4" fill="none" />
-              <path d="M7 5V4M10 5V3.5M13 5V4" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M6 10h8M6 12.5h5" stroke="white" strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
-            </svg>
-          </div>
-          <div className="text-white text-xs font-bold text-center leading-tight">
-            Data<br />Warehouse
-          </div>
-        </motion.div>
-
-        {/* Team nodes */}
-        {TEAM_NODES.map((node) => {
-          const { x, y } = angleToXY(node.angle, node.radius)
-          return (
             <motion.div
+              animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0, 0.4] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute rounded-2xl inset-0 pointer-events-none"
+              style={{ border: '1px solid rgba(99,102,241,0.4)' }}
+            />
+            <div
+              className="w-10 h-10 rounded-xl flex items-center justify-center mb-1.5 flex-shrink-0"
+              style={{ background: 'linear-gradient(135deg, #1851C6, #22D3EE)' }}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect x="3" y="5" width="14" height="10" rx="2" stroke="white" strokeWidth="1.4" fill="none" />
+                <path d="M7 5V4M10 5V3.5M13 5V4" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
+                <path d="M6 10h8M6 12.5h5" stroke="white" strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
+              </svg>
+            </div>
+            <div className="text-white text-xs font-bold text-center leading-tight">
+              Data<br />Warehouse
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Team nodes — plain div for positioning, inner motion.div for animation only */}
+        {TEAM_NODES.map((node) => {
+          const { x, y } = angleToXY(node.angle, RADIUS)
+          return (
+            <div
               key={node.label}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={showNodes ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: node.delay, type: 'spring', stiffness: 250, damping: 18 }}
-              className="absolute flex flex-col items-center gap-1.5"
+              className="absolute flex flex-col items-center gap-1"
               style={{
-                top: '50%',
-                left: '50%',
-                transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+                top: CENTER + y,
+                left: CENTER + x,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
               }}
             >
-              <div
-                className="w-12 h-12 rounded-2xl flex items-center justify-center"
-                style={{
-                  background: `${node.color}18`,
-                  border: `1.5px solid ${node.color}45`,
-                  color: node.color,
-                  boxShadow: `0 0 16px ${node.color}20`,
-                }}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={showNodes ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: node.delay, type: 'spring', stiffness: 250, damping: 18 }}
+                className="flex flex-col items-center gap-1"
               >
-                <TeamIcon icon={node.icon} />
-              </div>
-              <span
-                className="text-xs font-semibold text-center whitespace-nowrap"
-                style={{ color: node.color }}
-              >
-                {node.label}
-              </span>
-            </motion.div>
+                <div
+                  className="w-10 h-10 rounded-2xl flex items-center justify-center"
+                  style={{
+                    background: `${node.color}18`,
+                    border: `1.5px solid ${node.color}45`,
+                    color: node.color,
+                    boxShadow: `0 0 14px ${node.color}20`,
+                  }}
+                >
+                  <TeamIcon icon={node.icon} />
+                </div>
+                <span
+                  className="text-[10px] font-semibold text-center whitespace-nowrap"
+                  style={{ color: node.color }}
+                >
+                  {node.label}
+                </span>
+              </motion.div>
+            </div>
           )
         })}
       </div>
@@ -251,23 +270,23 @@ export default function Scene5() {
         initial={{ opacity: 0, x: 16 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 2.0, duration: 0.4 }}
-        className="flex flex-col gap-2.5 w-48 flex-shrink-0"
+        className="flex flex-col gap-2 w-40 flex-shrink-0"
       >
         <p className="text-xs font-semibold tracking-widest text-slate-600 uppercase">
           Teams empowered
         </p>
         {[
           { team: 'Analytics', outcome: 'SKU, store, and channel dashboards always current' },
-          { team: 'Demand Planning', outcome: 'Forecast from clean sell-through and inventory signals' },
-          { team: 'Finance', outcome: 'Margin and revenue visibility across all retail partners' },
-          { team: 'Sales', outcome: 'Retailer scorecards and performance insights for line reviews' },
+          { team: 'Demand Planning', outcome: 'Forecast from clean sell-through signals' },
+          { team: 'Finance', outcome: 'Margin visibility across all retail partners' },
+          { team: 'Sales', outcome: 'Retailer scorecards for line reviews' },
         ].map((item, i) => (
           <motion.div
             key={item.team}
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.1 + i * 0.1 }}
-            className="px-3 py-2.5 rounded-xl"
+            className="px-3 py-2 rounded-xl"
             style={{
               background: 'rgba(255,255,255,0.03)',
               border: '1px solid rgba(255,255,255,0.06)',
