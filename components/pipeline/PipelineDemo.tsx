@@ -7,6 +7,7 @@ import Scene2 from './scenes/Scene2'
 import Scene3 from './scenes/Scene3'
 import Scene4 from './scenes/Scene4'
 import Scene5 from './scenes/Scene5'
+import Scene6 from './scenes/Scene6'
 
 const SCENES = [
   {
@@ -39,9 +40,15 @@ const SCENES = [
     title: 'Clean data. Live. Everywhere it needs to be.',
     subtitle: 'Normalized, correlated data delivered directly into your data warehouse as a live share — powering analytics, demand planning, finance, sales, and more in real time.',
   },
+  {
+    step: 6,
+    tag: 'Resilience',
+    title: 'When things change, SPS handles it.',
+    subtitle: 'Retailer gaps, map changes, restatements, new locations, item updates — events that cripple manual pipelines. SPS resolves all of it automatically, at no additional cost.',
+  },
 ]
 
-const SceneComponents = [Scene1, Scene2, Scene3, Scene4, Scene5]
+const SceneComponents = [Scene1, Scene2, Scene3, Scene4, Scene5, Scene6]
 
 const slideVariants = {
   enter: (dir: number) => ({
