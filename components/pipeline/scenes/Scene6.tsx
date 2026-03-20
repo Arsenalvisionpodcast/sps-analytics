@@ -93,7 +93,7 @@ export default function Scene6() {
   }, [])
 
   return (
-    <div className="w-full h-full flex flex-col gap-2.5 px-10 py-2">
+    <div className="w-full h-full flex flex-col gap-2.5 px-4 sm:px-10 py-2">
 
       {/* Column header */}
       <motion.div
@@ -102,10 +102,10 @@ export default function Scene6() {
         transition={{ delay: 0.05 }}
         className="flex items-center gap-3 pt-1"
       >
-        <div className="w-[36%] text-[10px] font-bold tracking-widest text-slate-600 uppercase pl-8">
+        <div className="w-1/2 sm:w-[36%] text-[10px] font-bold tracking-widest text-slate-600 uppercase pl-8">
           Scenario
         </div>
-        <div className="flex-1 text-[10px] font-bold tracking-widest uppercase"
+        <div className="hidden sm:block flex-1 text-[10px] font-bold tracking-widest uppercase"
           style={{ color: '#F87171' }}>
           Without SPS
         </div>
@@ -131,7 +131,7 @@ export default function Scene6() {
             }}
           >
             {/* Icon + title */}
-            <div className="w-[36%] flex items-center gap-2.5 min-w-0">
+            <div className="w-1/2 sm:w-[36%] flex items-center gap-2.5 min-w-0">
               <div
                 className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
                 style={{ background: `${s.color}18`, color: s.color }}
@@ -142,7 +142,7 @@ export default function Scene6() {
             </div>
 
             {/* Pain */}
-            <div className="flex-1 min-w-0">
+            <div className="hidden sm:block flex-1 min-w-0">
               <p
                 className="text-[10px] leading-snug transition-opacity duration-500"
                 style={{ color: '#F87171', opacity: phase >= 1 ? 0.45 : 0.85 }}

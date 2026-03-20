@@ -85,7 +85,7 @@ export default function Scene5() {
         initial={{ opacity: 0, x: -16 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2, duration: 0.4 }}
-        className="flex flex-col gap-3 w-40 flex-shrink-0"
+        className="hidden sm:flex flex-col gap-3 w-40 flex-shrink-0"
       >
         <p className="text-xs font-semibold tracking-widest text-slate-600 uppercase">
           Data delivered as
@@ -147,8 +147,9 @@ export default function Scene5() {
       </motion.div>
 
       {/* ── CENTER: HUB AND SPOKE ── */}
+      <div className="scale-[0.82] sm:scale-100 origin-center flex-shrink-0">
       <div
-        className="relative flex-shrink-0"
+        className="relative"
         style={{ width: SIZE, height: SIZE }}
       >
         {/* SVG layer — spoke lines only, no Framer Motion transform conflicts */}
@@ -264,13 +265,14 @@ export default function Scene5() {
           )
         })}
       </div>
+      </div>{/* end scale wrapper */}
 
       {/* ── RIGHT: OUTCOME CALLOUTS ── */}
       <motion.div
         initial={{ opacity: 0, x: 16 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 2.0, duration: 0.4 }}
-        className="flex flex-col gap-2 w-40 flex-shrink-0"
+        className="hidden sm:flex flex-col gap-2 w-40 flex-shrink-0"
       >
         <p className="text-xs font-semibold tracking-widest text-slate-600 uppercase">
           Teams empowered

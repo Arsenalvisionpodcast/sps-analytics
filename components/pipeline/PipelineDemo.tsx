@@ -128,7 +128,7 @@ export default function PipelineDemo() {
       />
 
       {/* ── TOP BAR ── */}
-      <div className="relative z-10 flex items-center justify-between px-8 py-4 flex-shrink-0">
+      <div className="relative z-10 flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4 flex-shrink-0">
         <a href="/" className="flex items-center gap-2.5 group">
           <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-md shadow-blue-400/20 group-hover:shadow-blue-400/40 transition-shadow overflow-hidden flex-shrink-0">
             <img src="/sps-logo-mark.png" alt="SPS Commerce" className="w-6 h-6 object-contain" />
@@ -176,10 +176,10 @@ export default function PipelineDemo() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="relative z-10 text-center px-8 pb-3 flex-shrink-0"
+          className="relative z-10 text-center px-4 sm:px-8 pb-2 sm:pb-3 flex-shrink-0"
         >
           <div
-            className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3"
+            className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-2 sm:mb-3"
             style={{
               color: '#60A5FA',
               background: 'rgba(59,130,246,0.1)',
@@ -188,10 +188,10 @@ export default function PipelineDemo() {
           >
             Step {scene.step} of {SCENES.length} &nbsp;·&nbsp; {scene.tag}
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2 leading-tight">
+          <h1 className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2 leading-tight">
             {scene.title}
           </h1>
-          <p className="text-slate-400 text-sm max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed hidden sm:block">
             {scene.subtitle}
           </p>
         </motion.div>
@@ -216,11 +216,11 @@ export default function PipelineDemo() {
       </div>
 
       {/* ── BOTTOM NAV ── */}
-      <div className="relative z-10 flex items-center justify-between px-8 py-4 flex-shrink-0">
+      <div className="relative z-10 flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4 flex-shrink-0">
         <button
           onClick={goPrev}
           disabled={current === 0}
-          className="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 disabled:opacity-25 disabled:cursor-not-allowed"
+          className="flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 disabled:opacity-25 disabled:cursor-not-allowed"
           style={{
             color: '#94A3B8',
             border: '1px solid rgba(255,255,255,0.1)',
@@ -231,14 +231,14 @@ export default function PipelineDemo() {
           ← Previous
         </button>
 
-        <span className="text-slate-700 text-xs">
+        <span className="text-slate-700 text-xs hidden sm:inline">
           ← → arrow keys to navigate
         </span>
 
         <button
           onClick={goNext}
           disabled={current === SCENES.length - 1}
-          className="flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 disabled:opacity-25 disabled:cursor-not-allowed text-white"
+          className="flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 disabled:opacity-25 disabled:cursor-not-allowed text-white"
           style={{
             background: current === SCENES.length - 1
               ? 'rgba(255,255,255,0.1)'

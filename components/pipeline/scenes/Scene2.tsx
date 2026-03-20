@@ -114,10 +114,10 @@ export default function Scene2() {
   const errors = useCounter(312, 2400)
 
   return (
-    <div className="w-full h-full flex items-center gap-4 px-8 py-2">
+    <div className="w-full h-full flex items-center gap-2 sm:gap-4 px-3 sm:px-8 py-2">
 
       {/* ── LEFT: RAW INCOMING DATA ── */}
-      <div className="flex flex-col gap-1.5 w-[34%]">
+      <div className="hidden sm:flex flex-col gap-1.5 w-[34%]">
         <p className="text-xs font-semibold tracking-widest text-slate-600 uppercase mb-1">
           Raw Incoming Data
         </p>
@@ -167,13 +167,13 @@ export default function Scene2() {
       </div>
 
       {/* ── CENTER: SPS ENGINE ── */}
-      <div className="flex flex-col items-center justify-center w-[28%] gap-4">
+      <div className="flex flex-col items-center justify-center w-[38%] sm:w-[28%] gap-4">
         {/* Engine box */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="relative flex flex-col items-center justify-center rounded-2xl px-6 py-5 w-full"
+          className="relative flex flex-col items-center justify-center rounded-2xl px-3 sm:px-6 py-4 sm:py-5 w-full"
           style={{
             background: 'rgba(37,99,235,0.08)',
             border: '1px solid rgba(37,99,235,0.3)',
@@ -274,7 +274,7 @@ export default function Scene2() {
       </div>
 
       {/* ── RIGHT: VALIDATED OUTPUT ── */}
-      <div className="flex flex-col gap-1.5 w-[34%]">
+      <div className="flex flex-col gap-1.5 w-[62%] sm:w-[34%]">
         <p className="text-xs font-semibold tracking-widest text-slate-600 uppercase mb-1">
           Validated Output
         </p>
@@ -320,7 +320,7 @@ export default function Scene2() {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="mt-2 px-4 py-3 rounded-xl"
+            className="hidden sm:block mt-2 px-4 py-3 rounded-xl"
             style={{
               background: 'rgba(16,185,129,0.05)',
               border: '1px solid rgba(16,185,129,0.15)',

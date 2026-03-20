@@ -11,7 +11,7 @@ const RETAILER_RECORDS = [
       { key: 'Dept', value: '07 – Athletic Footwear' },
       { key: 'Category', value: 'Athletic / Running' },
       { key: 'Vendor Item', value: 'STRYDE VELOCITY 3 BLK 10M' },
-      { key: 'UPC', value: '00194501234567' },
+      { key: 'UPC', value: '00847291038475' },
     ],
   },
   {
@@ -62,10 +62,10 @@ export default function Scene4() {
   }, [])
 
   return (
-    <div className="w-full h-full flex items-center gap-4 px-8 py-2">
+    <div className="w-full h-full flex items-center gap-2 sm:gap-4 px-4 sm:px-8 py-2">
 
       {/* ── LEFT: RETAILER RECORDS ── */}
-      <div className="flex flex-col gap-2.5 w-[35%]">
+      <div className="flex flex-col gap-2.5 w-1/2 sm:w-[35%]">
         <p className="text-xs font-semibold tracking-widest text-slate-600 uppercase mb-1">
           Retailer Naming
         </p>
@@ -101,7 +101,7 @@ export default function Scene4() {
       </div>
 
       {/* ── CENTER: ITEM FILE GATEWAY ── */}
-      <div className="flex flex-col items-center justify-center w-[22%] gap-3">
+      <div className="hidden sm:flex flex-col items-center justify-center w-[22%] gap-3">
         {/* Arrow in */}
         <AnimatePresence>
           {phase >= 1 && (
@@ -178,7 +178,7 @@ export default function Scene4() {
       </div>
 
       {/* ── RIGHT: INTERNAL RECORD ── */}
-      <div className="flex flex-col gap-2.5 w-[39%]">
+      <div className="flex flex-col gap-2.5 w-1/2 sm:w-[39%]">
         <p className="text-xs font-semibold tracking-widest text-slate-600 uppercase mb-1">
           Your Internal Taxonomy
         </p>
@@ -202,7 +202,7 @@ export default function Scene4() {
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 6px #34D399' }} />
                 <span className="text-xs font-bold text-emerald-400">Normalized Product Record</span>
               </div>
-              <div className="px-4 py-3 grid grid-cols-2 gap-x-4 gap-y-1.5">
+              <div className="px-4 py-3 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
                 {INTERNAL_RECORD.fields.map((f, i) => (
                   <motion.div
                     key={f.key}
@@ -229,7 +229,7 @@ export default function Scene4() {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-col gap-2"
+            className="hidden sm:flex flex-col gap-2"
           >
             {[
               'Walmart\'s "STRYDE VELOCITY 3 BLK 10M" → Velocity 3 / Black / Mens / 10',

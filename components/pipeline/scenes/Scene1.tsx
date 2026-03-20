@@ -55,10 +55,10 @@ function FlowParticle({ color, delay, width }: { color: string; delay: number; w
 
 export default function Scene1() {
   return (
-    <div className="w-full h-full flex items-center justify-center gap-6 px-10 py-2">
+    <div className="w-full h-full flex items-center justify-center gap-3 sm:gap-6 px-4 sm:px-10 py-2">
 
       {/* ── LEFT: RETAILER SOURCES ── */}
-      <div className="flex flex-col gap-2 w-[34%]">
+      <div className="flex flex-col gap-2 w-1/2 sm:w-[34%]">
         <p className="text-xs font-semibold tracking-widest text-slate-600 uppercase mb-1">
           Data Sources
         </p>
@@ -99,7 +99,7 @@ export default function Scene1() {
       </div>
 
       {/* ── CENTER: FLOW CHANNELS ── */}
-      <div className="flex flex-col w-[18%] gap-2">
+      <div className="hidden sm:flex flex-col w-[18%] gap-2">
         <p className="text-xs font-semibold tracking-widest text-slate-900 uppercase mb-1 select-none">
           &nbsp;
         </p>
@@ -135,7 +135,7 @@ export default function Scene1() {
         initial={{ opacity: 0, x: 16 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.0, duration: 0.4 }}
-        className="flex flex-col gap-3 w-[44%]"
+        className="flex flex-col gap-2 sm:gap-3 w-1/2 sm:w-[44%]"
       >
         <p className="text-xs font-semibold tracking-widest text-slate-600 uppercase mb-1">
           The Cost of Manual Collection
@@ -147,17 +147,17 @@ export default function Scene1() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1 + i * 0.15 }}
-            className="px-4 py-3 rounded-xl"
+            className="px-3 sm:px-4 py-2 sm:py-3 rounded-xl"
             style={{
               background: 'rgba(239,68,68,0.07)',
               border: '1px solid rgba(239,68,68,0.18)',
             }}
           >
             <div className="flex items-baseline gap-2 mb-0.5">
-              <span className="text-2xl font-bold" style={{ color: '#F87171' }}>
+              <span className="text-xl sm:text-2xl font-bold" style={{ color: '#F87171' }}>
                 {p.value}
               </span>
-              <span className="text-sm font-semibold" style={{ color: '#FCA5A5' }}>
+              <span className="text-xs sm:text-sm font-semibold" style={{ color: '#FCA5A5' }}>
                 {p.label}
               </span>
             </div>
@@ -169,7 +169,7 @@ export default function Scene1() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
-          className="px-4 py-3 rounded-xl mt-1"
+          className="hidden sm:block px-4 py-3 rounded-xl mt-1"
           style={{
             background: 'rgba(255,255,255,0.03)',
             border: '1px solid rgba(255,255,255,0.06)',

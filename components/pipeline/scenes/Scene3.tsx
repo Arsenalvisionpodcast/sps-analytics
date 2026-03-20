@@ -186,7 +186,7 @@ function GranularityTree({
 
 export default function Scene3() {
   return (
-    <div className="w-full h-full flex flex-col gap-3 px-10 py-2">
+    <div className="w-full h-full flex flex-col gap-3 px-4 sm:px-10 py-2">
 
       {/* ── TOP HALF: PERSISTENT FUNNEL ── */}
       <div className="flex gap-4 flex-1 min-h-0 items-start pt-2 overflow-hidden">
@@ -217,7 +217,7 @@ export default function Scene3() {
           initial={{ opacity: 0, x: 12 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.3 }}
-          className="w-44 flex flex-col justify-center gap-3 flex-shrink-0 pt-6"
+          className="hidden sm:flex w-44 flex-col justify-center gap-3 flex-shrink-0 pt-6"
         >
           <div
             className="px-3 py-3 rounded-xl"
@@ -240,8 +240,9 @@ export default function Scene3() {
         </motion.div>
       </div>
 
-      {/* Divider */}
+      {/* Divider — desktop only */}
       <div
+        className="hidden sm:block"
         style={{
           height: 1,
           flexShrink: 0,
@@ -249,8 +250,8 @@ export default function Scene3() {
         }}
       />
 
-      {/* ── BOTTOM HALF: GRANULARITY DEPTH ── */}
-      <div className="flex items-start justify-center gap-16 pb-2" style={{ minHeight: 180 }}>
+      {/* ── BOTTOM HALF: GRANULARITY DEPTH — desktop only ── */}
+      <div className="hidden sm:flex items-start justify-center gap-16 pb-2" style={{ minHeight: 180 }}>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}>
           <GranularityTree levels={GEO_LEVELS} title="Geographic Depth" delay={0} />
