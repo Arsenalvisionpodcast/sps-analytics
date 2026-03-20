@@ -3,12 +3,12 @@
 import { motion } from 'framer-motion'
 
 const RETAILERS = [
-  { name: 'Walmart', format: 'Retail Link Portal', tag: 'PORTAL', color: '#60A5FA', delay: 0 },
-  { name: 'Target', format: 'Manual Excel Download', tag: 'XLS', color: '#818CF8', delay: 0.1 },
+  { name: 'Walmart', format: 'Scintilla', tag: 'CLOUD', color: '#60A5FA', delay: 0 },
+  { name: 'Sephora', format: 'EDI 852', tag: 'EDI', color: '#818CF8', delay: 0.1 },
   { name: 'Amazon', format: 'Vendor Central API', tag: 'API', color: '#A78BFA', delay: 0.2 },
-  { name: 'Home Depot', format: 'EDI Data Feed', tag: 'EDI', color: '#22D3EE', delay: 0.3 },
-  { name: 'REI', format: 'Email Spreadsheet', tag: 'EMAIL', color: '#34D399', delay: 0.4 },
-  { name: "Dick's Sporting", format: 'FTP Manual Extract', tag: 'FTP', color: '#FBBF24', delay: 0.5 },
+  { name: 'Home Depot', format: 'Vendor Drill', tag: 'PORTAL', color: '#22D3EE', delay: 0.3 },
+  { name: 'REI', format: 'SPS Feed', tag: 'FEED', color: '#34D399', delay: 0.4 },
+  { name: 'Distributor', format: 'CSV', tag: 'EMAIL', color: '#FBBF24', delay: 0.5 },
 ]
 
 const PAIN_POINTS = [
