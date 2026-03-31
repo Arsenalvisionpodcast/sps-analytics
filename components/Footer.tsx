@@ -8,10 +8,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center">
-                <svg viewBox="0 0 20 20" fill="white" className="w-3.5 h-3.5">
-                  <path d="M3 3h6v6H3V3zm8 0h6v6h-6V3zM3 11h6v6H3v-6zm8 0h6v6h-6v-6z" />
-                </svg>
+              <div className="w-7 h-7 rounded-lg bg-white flex items-center justify-center overflow-hidden flex-shrink-0">
+                <img src="/sps-logo-mark.png" alt="SPS Commerce" className="w-5 h-5 object-contain" />
               </div>
               <span className="text-white font-bold text-sm">SPS Commerce</span>
             </div>
