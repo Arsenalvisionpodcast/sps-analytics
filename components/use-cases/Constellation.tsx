@@ -93,8 +93,9 @@ export default function Constellation({
   const isUseCaseActive = (ucId: number) => {
     if (hoveredUseCase === ucId) return true;
     if (hoveredProblem === 'p1') return true;
-    if (hoveredProblem && hoveredProblem !== 'p1') {
-      return useCases.find((u) => u.id === ucId)?.problems.includes(hoveredProblem as 'p2' | 'p3') ?? false;
+    // hoveredProblem is narrowed to 'p2' | 'p3' | null here
+    if (hoveredProblem) {
+      return useCases.find((u) => u.id === ucId)?.problems.includes(hoveredProblem) ?? false;
     }
     return false;
   };
