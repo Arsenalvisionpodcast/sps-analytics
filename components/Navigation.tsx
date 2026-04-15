@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { label: 'Analytics Platform', href: '#two-ways' },
-  { label: 'Data Integration', href: '#two-ways' },
-  { label: 'Why SPS', href: '#differentiators' },
-  { label: 'AI Readiness', href: '#ai-readiness' },
+  { label: 'Analytics Platform', href: '/#two-ways' },
+  { label: 'Why SPS', href: '/#differentiators' },
+  { label: 'AI Readiness', href: '/#ai-readiness' },
   { label: 'How It Works', href: '/pipeline' },
+  { label: 'Use Cases', href: '/use-cases' },
 ];
 
 export default function Navigation() {
@@ -35,7 +35,7 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group">
+          <a href="/" className="flex items-center gap-2.5 group">
             <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-md shadow-blue-400/20 group-hover:shadow-blue-400/40 transition-shadow overflow-hidden flex-shrink-0">
               <img src="/sps-logo-mark.png" alt="SPS Commerce" className="w-6 h-6 object-contain" />
             </div>
