@@ -36,7 +36,7 @@ function TeamIcon({ icon }: { icon: string }) {
     dollar: (
       <g>
         <circle cx="9.5" cy="9.5" r="7" stroke="currentColor" strokeWidth="1.5" fill="none" />
-        <path d="M9.5 5V14M7 7.5C7 7.5 7 6 9.5 6s2.5 1.5 2.5 2.5S9.5 10 9.5 10s-2.5 0-2.5 1.5S8.5 13 9.5 13s2.5-1 2.5-1.5" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" />
+        <path d="M9.5 5V14M12 7.5C12 7.5 12 6 9.5 6S7 7.5 7 8.5 9.5 10 9.5 10s2.5 0 2.5 1.5S10.5 13 9.5 13s-2.5-1-2.5-1.5" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" />
       </g>
     ),
     target: (
