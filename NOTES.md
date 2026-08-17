@@ -172,4 +172,4 @@ The hero visualization is shown on all screen sizes but may be simplified on mob
 - [ ] Update metadata in `app/layout.tsx`
 - [ ] Test on iOS Safari and Android Chrome
 - [ ] Verify all anchor links navigate correctly
-- [ ] Consider adding analytics (Vercel Analytics, Plausible, or GA4)
+- [x] Consider adding analytics (Vercel Analytics, Plausible, or GA4) — Vercel Analytics added via `<Analytics />` in `app/layout.tsx`; enable Web Analytics in the Vercel dashboard for the project
