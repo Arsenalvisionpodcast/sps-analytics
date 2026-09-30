@@ -29,7 +29,15 @@ export const metadata: Metadata = {
     title: 'SPS Decision Intelligence | SPS Commerce',
     description:
       'From retailer chaos to strategic intelligence. SPS Commerce eliminates manual data collection so your teams can focus on insights, not wrangling.',
+    url: '/',
+    siteName: 'SPS Decision Intelligence',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SPS Decision Intelligence | SPS Commerce',
+    description:
+      'From retailer chaos to strategic intelligence. SPS Commerce eliminates manual data collection so your teams can focus on insights, not wrangling.',
   },
 };
 
