@@ -10,6 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  // Absolute base for share-image and canonical URLs
+  metadataBase: new URL('https://sps-analytics.vercel.app'),
   title: 'SPS Decision Intelligence | SPS Commerce',
   description:
     'Transform fragmented retailer and channel data into clean, correlated, decision-ready intelligence. SPS Commerce delivers the Decision Intelligence platform and data integration infrastructure your teams need.',
