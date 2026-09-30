@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { ChapterProps } from '../types'
 import { DESTINATIONS, DISRUPTIONS, TEAMS } from '../data'
 import TeamIcon from '@/components/ui/TeamIcon'
+import Nudge from '../ui/Nudge'
 
 // Hub geometry in viewBox units; the hub itself is sized in rem so it scales with the type
 const SIZE = 300
@@ -180,21 +181,22 @@ export default function LiveResilient({ mode }: ChapterProps) {
           <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Stress test</div>
           <div className="text-base text-slate-300 mb-3">Throw a real-world disruption at the pipeline:</div>
           <div className="grid grid-cols-2 gap-2 mb-4">
-            {DISRUPTIONS.map(d => {
+            {DISRUPTIONS.map((d, i) => {
               const active = d.id === eventId
               return (
-                <button
-                  key={d.id}
-                  onClick={() => trigger(d.id)}
-                  className="text-left text-sm font-semibold px-3 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
-                  style={{
-                    color: active ? '#fff' : '#CBD5E1',
-                    background: !active ? 'rgba(255,255,255,0.04)' : status === 'healed' ? 'rgba(52,211,153,0.12)' : 'rgba(248,113,113,0.15)',
-                    border: `1px solid ${!active ? 'rgba(255,255,255,0.1)' : status === 'healed' ? 'rgba(52,211,153,0.45)' : 'rgba(248,113,113,0.5)'}`,
-                  }}
-                >
-                  ⚡ {d.label}
-                </button>
+                <Nudge key={d.id} active={i === 0 && !eventId}>
+                  <button
+                    onClick={() => trigger(d.id)}
+                    className="w-full h-full text-left text-sm font-semibold px-3 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+                    style={{
+                      color: active ? '#fff' : '#CBD5E1',
+                      background: !active ? 'rgba(255,255,255,0.04)' : status === 'healed' ? 'rgba(52,211,153,0.12)' : 'rgba(248,113,113,0.15)',
+                      border: `1px solid ${!active ? 'rgba(255,255,255,0.1)' : status === 'healed' ? 'rgba(52,211,153,0.45)' : 'rgba(248,113,113,0.5)'}`,
+                    }}
+                  >
+                    ⚡ {d.label}
+                  </button>
+                </Nudge>
               )
             })}
           </div>

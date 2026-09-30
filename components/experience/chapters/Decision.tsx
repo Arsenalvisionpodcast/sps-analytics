@@ -6,6 +6,7 @@ import type { ChapterProps } from '../types'
 import { DECISION_FRAMES } from '../data'
 import { personas, useCases, type PersonaId } from '@/components/use-cases/data'
 import MiniViz from '@/components/use-cases/MiniViz'
+import Nudge from '../ui/Nudge'
 
 export default function Decision({ mode }: ChapterProps) {
   const on = mode === 'with'
@@ -29,22 +30,23 @@ export default function Decision({ mode }: ChapterProps) {
         <div className="flex flex-col items-center mb-3">
           <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Whose decision is it?</div>
           <div className="flex flex-wrap justify-center gap-2">
-            {personas.map(p => {
+            {personas.map((p, i) => {
               const sel = p.id === personaId
               return (
-                <button
-                  key={p.id}
-                  onClick={() => pick(p.id)}
-                  className="px-4 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-200"
-                  style={{
-                    color: sel ? '#fff' : '#CBD5E1',
-                    background: sel ? `${p.color}40` : 'rgba(255,255,255,0.04)',
-                    border: `1px solid ${sel ? p.color : 'rgba(255,255,255,0.12)'}`,
-                    boxShadow: sel ? `0 0 24px ${p.color}55` : 'none',
-                  }}
-                >
-                  {p.label}
-                </button>
+                <Nudge key={p.id} active={i === 0 && !personaId} delay={1.5}>
+                  <button
+                    onClick={() => pick(p.id)}
+                    className="px-4 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-200"
+                    style={{
+                      color: sel ? '#fff' : '#CBD5E1',
+                      background: sel ? `${p.color}40` : 'rgba(255,255,255,0.04)',
+                      border: `1px solid ${sel ? p.color : 'rgba(255,255,255,0.12)'}`,
+                      boxShadow: sel ? `0 0 24px ${p.color}55` : 'none',
+                    }}
+                  >
+                    {p.label}
+                  </button>
+                </Nudge>
               )
             })}
           </div>
