@@ -138,7 +138,7 @@ export default function PipelineDemo() {
               SPS Commerce
             </span>
             <span className="block text-[10px] font-medium leading-none text-blue-400">
-              Analytics
+              Decision Intelligence
             </span>
           </div>
         </a>

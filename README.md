@@ -1,6 +1,6 @@
-# SPS Commerce Analytics — Marketing Website
+# SPS Decision Intelligence — Marketing Website
 
-A polished, production-ready marketing microsite for the SPS Commerce Analytics and Data Integration solution. Built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
+A polished, production-ready marketing microsite for the SPS Decision Intelligence and Data Integration solution. Built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
 
 ---
 
@@ -93,7 +93,7 @@ sps-analytics/
 │       ├── Hero.tsx               # Hero with animated SVG data flow
 │       ├── Problem.tsx            # Pain point grid
 │       ├── Pipeline.tsx           # 6-step data pipeline + before/after table
-│       ├── TwoWays.tsx            # Analytics Platform vs Data Integration
+│       ├── TwoWays.tsx            # Decision Intelligence Platform vs Data Integration
 │       ├── Granularity.tsx        # UPC/door-level data value props
 │       ├── StopManaging.tsx       # Bold role-based messaging
 │       ├── AIReadiness.tsx        # AI strategy + data quality stack

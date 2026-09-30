@@ -172,7 +172,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.5 }}
           >
             <Button variant="primary" size="lg" href="#two-ways" icon={<ArrowIcon />}>
-              Explore Analytics Platform
+              Explore Decision Intelligence
             </Button>
             <Button variant="outline-white" size="lg" href="#two-ways">
               See Data Integration
