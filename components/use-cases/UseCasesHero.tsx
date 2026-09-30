@@ -50,6 +50,14 @@ export default function UseCasesHero() {
             drives better outcomes for your business.
           </p>
 
+          <a
+            href="/experience"
+            className="mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-sm font-semibold text-white hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-200"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+            Experience it: follow one sale to a decision →
+          </a>
+
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-white/60">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-300 font-extrabold">

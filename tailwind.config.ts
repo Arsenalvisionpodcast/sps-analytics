@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        // Short viewports (small laptops, 720p screen shares): used by /experience to compact chrome
+        short: { raw: '(max-height: 780px)' },
+      },
       colors: {
         sps: {
           navy: '#06163D',
