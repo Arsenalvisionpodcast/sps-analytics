@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'AI Readiness', href: '/#ai-readiness' },
   { label: 'How It Works', href: '/pipeline' },
   { label: 'Use Cases', href: '/use-cases' },
+  { label: 'The Experience', href: '/experience' },
 ];
 
 export default function Navigation() {

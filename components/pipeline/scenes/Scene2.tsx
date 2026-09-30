@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useCounter } from '@/lib/hooks/useCounter'
 
 // Raw incoming rows with issues
 const RAW_ROWS = [
@@ -77,24 +78,6 @@ const CLEAN_ROWS = [
   { retailer: 'REI', store: 'Store R482', product: 'Nike Air Force 1', metric: 'Units Sold', value: '3', date: '3/10/25' },
   { retailer: 'Amazon', store: 'AMZ-EAST', product: 'Air Force 1 Wht', metric: 'Units Sold', value: '15', date: '3/10/25' },
 ]
-
-function useCounter(to: number, delay: number, duration: number = 1200) {
-  const [value, setValue] = useState(0)
-  useEffect(() => {
-    const t = setTimeout(() => {
-      const start = Date.now()
-      const tick = () => {
-        const progress = Math.min((Date.now() - start) / duration, 1)
-        const eased = 1 - Math.pow(1 - progress, 3)
-        setValue(Math.round(to * eased))
-        if (progress < 1) requestAnimationFrame(tick)
-      }
-      requestAnimationFrame(tick)
-    }, delay)
-    return () => clearTimeout(t)
-  }, [to, delay, duration])
-  return value
-}
 
 export default function Scene2() {
   const [phase, setPhase] = useState(0)

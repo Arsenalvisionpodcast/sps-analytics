@@ -179,6 +179,17 @@ export default function Hero() {
             </Button>
           </motion.div>
 
+          <motion.a
+            href="/experience"
+            className="inline-flex items-center gap-2 -mt-6 mb-10 text-sm font-semibold text-sky-300 hover:text-white transition-colors"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.65 }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+            Follow the signal: see the story in 3 minutes →
+          </motion.a>
+
           {/* Trust badges */}
           <motion.div
             className="flex flex-wrap items-center gap-5"
