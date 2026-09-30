@@ -43,10 +43,10 @@ export default function UseCasesHero() {
           </h1>
 
           <p className="text-lg lg:text-xl text-white/70 leading-relaxed max-w-2xl">
-            SPS Analytics is a <span className="text-white font-semibold">decision optimization platform</span> for
+            SPS Decision Intelligence turns <span className="text-white font-semibold">clean data into better decisions</span> for
             brands and suppliers. Every play below — inventory, forecasting, pricing, promotions,
             assortment, buyer conversations — runs on the same foundation: clean, analytics-ready
-            sales and inventory data. Below, you can explore how better data from SPS Analytics
+            sales and inventory data. Below, you can explore how better data from SPS Decision Intelligence
             drives better outcomes for your business.
           </p>
 

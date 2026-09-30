@@ -65,7 +65,7 @@ export default function TwoWays() {
 
         {/* Two cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-          {/* Card A: Analytics Platform */}
+          {/* Card A: Decision Intelligence Platform */}
           <motion.div
             className="relative rounded-3xl overflow-hidden border border-blue-100"
             initial={{ opacity: 0, x: -30 }}
@@ -86,7 +86,7 @@ export default function TwoWays() {
               </div>
 
               <h3 className="text-2xl lg:text-3xl font-extrabold text-white mb-2">
-                SPS Analytics Platform
+                SPS Decision Intelligence Platform
               </h3>
               <p className="text-blue-200 text-base leading-relaxed mb-8">
                 A fully managed analytics experience — from data collection to dashboard. Your team
@@ -143,7 +143,7 @@ export default function TwoWays() {
                   href="#cta"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-700 font-bold rounded-xl text-sm hover:bg-blue-50 transition-colors shadow-md"
                 >
-                  Explore Analytics Platform
+                  Explore Decision Intelligence
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

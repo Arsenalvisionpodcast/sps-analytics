@@ -1,4 +1,4 @@
-# Customization Guide — SPS Analytics Site
+# Customization Guide — SPS Decision Intelligence Site
 
 This document explains where to update key elements of the site when refining for real-world use.
 
@@ -69,7 +69,7 @@ import Image from 'next/image';
 // ...
 <Image
   src="/dashboard-overview.png"
-  alt="SPS Analytics Dashboard"
+  alt="SPS Decision Intelligence Dashboard"
   width={900}
   height={600}
   className="rounded-xl w-full"
@@ -97,7 +97,7 @@ Edit the `navLinks` array in `Navigation.tsx` to update the top navigation items
 
 ```ts
 const navLinks = [
-  { label: 'Analytics Platform', href: '#two-ways' },
+  { label: 'Decision Intelligence', href: '#two-ways' },
   { label: 'Data Integration', href: '#two-ways' },
   // ...
 ];

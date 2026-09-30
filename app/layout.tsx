@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'SPS Commerce Analytics | Retail Data Intelligence',
+  title: 'SPS Decision Intelligence | SPS Commerce',
   description:
-    'Transform fragmented retailer and channel data into clean, correlated, decision-ready intelligence. SPS Commerce delivers the analytics platform and data integration infrastructure your teams need.',
+    'Transform fragmented retailer and channel data into clean, correlated, decision-ready intelligence. SPS Commerce delivers the Decision Intelligence platform and data integration infrastructure your teams need.',
   keywords: [
     'retail analytics',
     'retail data',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'supply chain analytics',
   ],
   openGraph: {
-    title: 'SPS Commerce Analytics | Retail Data Intelligence',
+    title: 'SPS Decision Intelligence | SPS Commerce',
     description:
       'From retailer chaos to strategic intelligence. SPS Commerce eliminates manual data collection so your teams can focus on insights, not wrangling.',
     type: 'website',

@@ -185,7 +185,7 @@ export default function UseCaseDetail({ useCaseId, onClose }: UseCaseDetailProps
               {/* Inline CTA */}
               <section className="border-t border-slate-100 pt-6">
                 <a
-                  href="mailto:ebsmith@spscommerce.com?subject=SPS%20Analytics%20-%20Use%20Case%20Discussion"
+                  href="mailto:ebsmith@spscommerce.com?subject=SPS%20Decision%20Intelligence%20-%20Use%20Case%20Discussion"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 text-white font-semibold rounded-xl text-sm hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/30"
                 >
                   Talk to us about this use case

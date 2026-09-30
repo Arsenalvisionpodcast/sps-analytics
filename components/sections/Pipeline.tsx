@@ -80,7 +80,7 @@ const steps = [
     title: 'Deliver',
     subtitle: 'To Dashboards & Data Stacks',
     description:
-      'Clean, trusted data lands in your SPS analytics dashboards or flows directly into Snowflake, Databricks, Azure, GCP, or any cloud data platform.',
+      'Clean, trusted data lands in your SPS Decision Intelligence dashboards or flows directly into Snowflake, Databricks, Azure, GCP, or any cloud data platform.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />

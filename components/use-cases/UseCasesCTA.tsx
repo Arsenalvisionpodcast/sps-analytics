@@ -37,7 +37,7 @@ export default function UseCasesCTA() {
           </p>
 
           <a
-            href="mailto:ebsmith@spscommerce.com?subject=SPS%20Analytics%20-%20Demo%20Request"
+            href="mailto:ebsmith@spscommerce.com?subject=SPS%20Decision%20Intelligence%20-%20Demo%20Request"
             className="inline-flex items-center gap-3 px-8 py-4 bg-white text-blue-700 font-bold rounded-xl text-base hover:bg-blue-50 transition-all shadow-xl shadow-blue-900/30 hover:-translate-y-0.5"
           >
             Request a Demo

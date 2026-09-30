@@ -58,8 +58,8 @@ export default function DecisionCategories() {
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
             The nine use cases above don&apos;t live in isolation — they roll up to the five
-            decision categories that suppliers and brands make every day. SPS Analytics is the
-            decision optimization platform that powers all of them.
+            decision categories that suppliers and brands make every day. SPS Decision Intelligence is the
+            platform that powers all of them.
           </p>
         </motion.div>
 

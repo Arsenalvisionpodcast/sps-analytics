@@ -22,7 +22,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-3">Solutions</h4>
             <ul className="space-y-2">
-              {['Analytics Platform', 'Data Integration', 'Snowflake Connector', 'Databricks Connector', 'AI-Ready Data'].map((item) => (
+              {['Decision Intelligence Platform', 'Data Integration', 'Snowflake Connector', 'Databricks Connector', 'AI-Ready Data'].map((item) => (
                 <li key={item}>
                   <a href="#" className="text-xs hover:text-white transition-colors">{item}</a>
                 </li>

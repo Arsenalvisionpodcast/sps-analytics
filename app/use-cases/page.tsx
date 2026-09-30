@@ -9,7 +9,7 @@ import UseCasesCTA from '@/components/use-cases/UseCasesCTA';
 export const metadata: Metadata = {
   title: 'SPS Commerce | Use Cases',
   description:
-    'Three problems, nine use cases, one foundation. SPS Analytics is a decision optimization platform that turns POS data into better decisions for brands and suppliers across every sales channel.',
+    'Three problems, nine use cases, one foundation. SPS Decision Intelligence turns POS data into better decisions for brands and suppliers across every sales channel.',
 };
 
 export default function UseCasesPage() {

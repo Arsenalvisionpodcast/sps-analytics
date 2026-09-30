@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { label: 'Analytics Platform', href: '/#two-ways' },
+  { label: 'Decision Intelligence', href: '/#two-ways' },
   { label: 'Why SPS', href: '/#differentiators' },
   { label: 'AI Readiness', href: '/#ai-readiness' },
   { label: 'How It Works', href: '/pipeline' },
@@ -49,17 +49,17 @@ export default function Navigation() {
                 SPS Commerce
               </span>
               <span
-                className={`block text-[10px] font-medium leading-none transition-colors ${
+                className={`block text-[10px] font-medium leading-none whitespace-nowrap transition-colors ${
                   scrolled ? 'text-blue-600' : 'text-blue-300'
                 }`}
               >
-                Analytics
+                Decision Intelligence
               </span>
             </div>
           </a>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden xl:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -76,7 +76,7 @@ export default function Navigation() {
           </div>
 
           {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-3">
             <a
               href="#cta"
               className={`text-sm font-medium transition-colors ${
@@ -96,7 +96,7 @@ export default function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
+            className={`xl:hidden p-2 rounded-lg transition-colors ${
               scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'
             }`}
             aria-label="Toggle menu"
@@ -116,7 +116,7 @@ export default function Navigation() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed top-16 inset-x-0 z-40 bg-white border-b border-slate-200 shadow-lg md:hidden"
+            className="fixed top-16 inset-x-0 z-40 bg-white border-b border-slate-200 shadow-lg xl:hidden"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}

@@ -505,7 +505,7 @@ export default function DashboardShowcase() {
                     <path d="M3 3h6v6H3V3zm8 0h6v6h-6V3zM3 11h6v6H3v-6zm8 0h6v6h-6v-6z" />
                   </svg>
                 </div>
-                <span className="text-white text-xs font-bold">SPS Analytics</span>
+                <span className="text-white text-xs font-bold leading-tight">SPS Decision Intelligence</span>
               </div>
               {[
                 { label: 'Overview',         active: activeView === 'Executive Overview' },
