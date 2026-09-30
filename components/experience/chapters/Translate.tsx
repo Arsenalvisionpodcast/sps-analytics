@@ -15,7 +15,7 @@ function lanePath(i: number, on: boolean) {
 function DepthStrip({ label, levels, on, delay }: { label: string; levels: string[]; on: boolean; delay: number }) {
   return (
     <div>
-      <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1.5">{label}</div>
+      <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1.5">{label}</div>
       <div className="flex flex-wrap items-center gap-1">
         {levels.map((lvl, i) => {
           const lit = on || i === 0
@@ -23,7 +23,7 @@ function DepthStrip({ label, levels, on, delay }: { label: string; levels: strin
           return (
             <div key={lvl} className="flex items-center gap-1">
               <motion.span
-                className="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md whitespace-nowrap"
+                className="text-xs sm:text-[0.8125rem] font-semibold px-2 py-1 rounded-md whitespace-nowrap"
                 animate={{
                   opacity: lit ? 1 : 0.3,
                   filter: lit ? 'blur(0px)' : 'blur(1.5px)',
@@ -37,11 +37,11 @@ function DepthStrip({ label, levels, on, delay }: { label: string; levels: strin
               >
                 {lvl}
               </motion.span>
-              {!last && <span className={`text-[10px] ${on ? 'text-cyan-400/70' : 'text-slate-700'}`}>›</span>}
+              {!last && <span className={`text-xs ${on ? 'text-cyan-400/70' : 'text-slate-600'}`}>›</span>}
             </div>
           )
         })}
-        {!on && <span className="text-[10px] text-red-300/80 ml-1">detail lost in roll-ups</span>}
+        {!on && <span className="text-xs text-red-300/80 ml-1">detail lost in roll-ups</span>}
       </div>
     </div>
   )
@@ -51,10 +51,10 @@ export default function Translate({ mode }: ChapterProps) {
   const on = mode === 'with'
 
   return (
-    <div className="w-full min-h-full flex items-center justify-center px-4 sm:px-8 py-4">
+    <div className="w-full min-h-full flex items-center justify-center px-4 sm:px-8 py-4 short:py-2">
       <div className="w-full max-w-5xl flex flex-col gap-6">
         {/* ── Funnel ── */}
-        <div className="flex flex-col md:flex-row md:items-stretch gap-3 md:gap-0 md:h-[230px]">
+        <div className="flex flex-col md:flex-row md:items-stretch gap-3 md:gap-0 md:h-[15rem]">
           <div className="grid grid-cols-2 md:grid-cols-1 md:grid-rows-6 gap-1.5 md:gap-0 md:w-[30%]">
             {CHANNELS.map((c, i) => (
               <motion.div
@@ -65,18 +65,18 @@ export default function Translate({ mode }: ChapterProps) {
                 transition={{ delay: i * 0.06 }}
               >
                 <div
-                  className="w-full flex items-center justify-between gap-2 px-3 py-1 rounded-md"
+                  className="w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-md"
                   style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
                 >
-                  <span className="text-[10px] text-slate-500 truncate">{c.name}</span>
+                  <span className="text-[0.8125rem] text-slate-400 truncate">{c.name}</span>
                   <span className="flex items-baseline gap-1.5 flex-shrink-0">
                     <span
-                      className="font-mono text-[11px] font-semibold transition-colors duration-500"
+                      className="font-mono text-sm font-semibold transition-colors duration-500"
                       style={{ color: on ? '#93C5FD' : '#FBBF24' }}
                     >
                       “{c.metric}”
                     </span>
-                    <span className="font-mono text-[11px] text-slate-300">{c.units}</span>
+                    <span className="font-mono text-sm text-slate-200">{c.units}</span>
                   </span>
                 </div>
               </motion.div>
@@ -134,11 +134,11 @@ export default function Translate({ mode }: ChapterProps) {
                     boxShadow: '0 0 40px rgba(34,211,238,0.15)',
                   }}
                 >
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-cyan-300 mb-1">SPS standard metric</div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-cyan-300 mb-1">SPS standard metric</div>
                   <div className="text-lg font-bold text-white">Units Sold</div>
                   <div className="text-5xl font-extrabold text-gradient-blue tabular-nums my-1">{TOTAL_UNITS}</div>
-                  <div className="text-[11px] text-slate-400">across all six channels, reconciled</div>
-                  <div className="mt-3 pt-3 border-t border-white/10 text-[11px] text-slate-300">
+                  <div className="text-[0.8125rem] text-slate-400">across all six channels, reconciled</div>
+                  <div className="mt-3 pt-3 border-t border-white/10 text-[0.8125rem] text-slate-300">
                     <span className="font-extrabold text-white">1,300+</span> metrics standardized across every partner in the network
                   </div>
                 </motion.div>
@@ -151,8 +151,8 @@ export default function Translate({ mode }: ChapterProps) {
                   className="w-full rounded-2xl p-5 text-center"
                   style={{ background: 'rgba(248,113,113,0.05)', border: '1px dashed rgba(248,113,113,0.35)' }}
                 >
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-red-300/80 mb-2">Total units, all channels</div>
-                  <div className="font-mono text-[11px] text-slate-400 mb-1">
+                  <div className="text-xs font-bold uppercase tracking-widest text-red-300/80 mb-2">Total units, all channels</div>
+                  <div className="font-mono text-[0.8125rem] text-slate-400 mb-1">
                     {CHANNELS.map(c => c.units).join(' + ')} =
                   </div>
                   <motion.div
@@ -162,7 +162,7 @@ export default function Translate({ mode }: ChapterProps) {
                   >
                     ?
                   </motion.div>
-                  <div className="text-[11px] text-slate-400 mt-1">Six definitions. Nothing reconciles.</div>
+                  <div className="text-[0.8125rem] text-slate-400 mt-1">Six definitions. Nothing reconciles.</div>
                 </motion.div>
               )}
             </AnimatePresence>

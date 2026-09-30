@@ -15,14 +15,14 @@ export default function Cleanse({ mode }: ChapterProps) {
   const rows = RAW_RECORDS.filter(r => !(on && r.removed))
 
   return (
-    <div className="w-full min-h-full flex items-center justify-center px-4 sm:px-8 py-4">
+    <div className="w-full min-h-full flex items-center justify-center px-4 sm:px-8 py-4 short:py-2">
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-[1.25fr_0.8fr_1.1fr] gap-4 md:gap-6 items-center">
         {/* ── Incoming records ── */}
         <div>
-          <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
+          <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">
             Incoming records · {PRODUCT.name}
           </div>
-          <div className="space-y-1.5">
+          <div className="space-y-2">
             <AnimatePresence initial={false}>
               {rows.map(r => {
                 const store = on && r.storeFixed ? r.storeFixed : r.store
@@ -37,7 +37,7 @@ export default function Cleanse({ mode }: ChapterProps) {
                     className="overflow-hidden"
                   >
                     <div
-                      className="grid grid-cols-[1fr_auto] gap-2 items-center px-3 py-2 rounded-lg font-mono text-[11px] transition-colors duration-500"
+                      className="grid grid-cols-[1fr_auto] gap-2 items-center px-3 py-2.5 rounded-lg font-mono text-sm transition-colors duration-500"
                       style={{
                         background: on ? 'rgba(16,185,129,0.05)' : 'rgba(255,255,255,0.04)',
                         border: `1px solid ${on ? 'rgba(52,211,153,0.25)' : `${r.issueColor}33`}`,
@@ -52,7 +52,7 @@ export default function Cleanse({ mode }: ChapterProps) {
                         <span className={on && r.dateFixed ? 'text-emerald-300' : r.date === '—' ? 'text-amber-300' : ''}>{date}</span>
                       </div>
                       <span
-                        className="text-[9px] font-bold tracking-wider px-1.5 py-0.5 rounded"
+                        className="text-[0.6875rem] font-bold tracking-wider px-1.5 py-0.5 rounded"
                         style={
                           on
                             ? { color: '#34D399', background: 'rgba(52,211,153,0.12)' }
@@ -94,26 +94,26 @@ export default function Cleanse({ mode }: ChapterProps) {
               {on ? (
                 <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex flex-col items-center gap-1.5">
                   <SignalOrb mode="with" size={26} />
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-cyan-200">SPS Data Engine</div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-cyan-200">SPS Data Engine</div>
                 </motion.div>
               ) : (
                 <div className="px-3">
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500">No validation layer</div>
-                  <div className="text-[10px] text-slate-600 mt-1">Records pass straight through</div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-slate-400">No validation layer</div>
+                  <div className="text-xs text-slate-500 mt-1">Records pass straight through</div>
                 </div>
               )}
             </div>
           </div>
-          <div className="mt-3 space-y-1 min-h-[88px]">
+          <div className="mt-3 space-y-1 min-h-[5.5rem]">
             {CHECKS.map((c, i) => (
               <motion.div
                 key={c}
-                className="flex items-center gap-2 text-[11px]"
+                className="flex items-center gap-2 text-[0.8125rem]"
                 animate={{ opacity: on ? 1 : 0.35 }}
                 transition={{ delay: on ? 0.3 + i * 0.2 : 0 }}
               >
                 <motion.span
-                  className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold"
+                  className="w-4 h-4 rounded-full flex items-center justify-center text-[0.6875rem] font-bold"
                   animate={{
                     background: on ? 'rgba(52,211,153,0.2)' : 'rgba(255,255,255,0.05)',
                     color: on ? '#34D399' : '#475569',
@@ -122,7 +122,7 @@ export default function Cleanse({ mode }: ChapterProps) {
                 >
                   {on ? '✓' : '·'}
                 </motion.span>
-                <span className={on ? 'text-slate-300' : 'text-slate-600'}>{c}</span>
+                <span className={on ? 'text-slate-300' : 'text-slate-500'}>{c}</span>
               </motion.div>
             ))}
           </div>
@@ -130,7 +130,7 @@ export default function Cleanse({ mode }: ChapterProps) {
 
         {/* ── Report ── */}
         <div>
-          <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
+          <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">
             What your report says · {HERO_SALE.store}
           </div>
           <div
@@ -154,13 +154,13 @@ export default function Cleanse({ mode }: ChapterProps) {
                 </motion.span>
               </AnimatePresence>
               <div>
-                <div className="text-sm text-slate-300 font-semibold">units sold</div>
-                <div className={`text-xs font-bold ${on ? 'text-emerald-400' : 'text-red-400'}`}>
+                <div className="text-base text-slate-300 font-semibold">units sold</div>
+                <div className={`text-sm font-bold ${on ? 'text-emerald-400' : 'text-red-400'}`}>
                   {on ? '✓ Verified' : '✗ Double-counted'}
                 </div>
               </div>
             </div>
-            <div className="space-y-1.5 text-[11px] leading-snug">
+            <div className="space-y-1.5 text-[0.8125rem] leading-snug">
               <div className={on ? 'text-slate-300' : 'text-orange-300/90'}>
                 {on ? '✓ Store 1162 resolved — 7 units attributed' : '⚠ Store “BR-11X” unknown — 7 units orphaned'}
               </div>
@@ -177,13 +177,13 @@ export default function Cleanse({ mode }: ChapterProps) {
               >
                 <div>
                   <div className="text-xl font-extrabold text-white tabular-nums">{dupes}</div>
-                  <div className="text-[10px] text-slate-400">duplicates removed</div>
+                  <div className="text-xs text-slate-400">duplicates removed</div>
                 </div>
                 <div>
                   <div className="text-xl font-extrabold text-white tabular-nums">{errors}</div>
-                  <div className="text-[10px] text-slate-400">errors resolved</div>
+                  <div className="text-xs text-slate-400">errors resolved</div>
                 </div>
-                <div className="col-span-2 text-[10px] text-cyan-300/90 leading-snug">
+                <div className="col-span-2 text-xs text-cyan-300/90 leading-snug">
                   100% validated against business rules, cross-partner standards, and historical benchmarks.
                 </div>
               </motion.div>

@@ -18,7 +18,7 @@ export default function JourneyRail({ labels, current, mode, onJump }: JourneyRa
   const on = mode === 'with'
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto px-3 pt-1 pb-5 sm:pb-6">
+    <div className="relative w-full max-w-2xl mx-auto px-3 pt-1 pb-5 sm:pb-6 short:pb-4">
       <div className="relative h-5">
         {/* track */}
         <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-px bg-white/10" />
@@ -47,10 +47,10 @@ export default function JourneyRail({ labels, current, mode, onJump }: JourneyRa
                 style={{ background: done ? '#60A5FA' : 'rgba(255,255,255,0.18)' }}
               />
               <span
-                className={`absolute top-6 left-1/2 -translate-x-1/2 text-[10px] font-semibold uppercase tracking-wider whitespace-nowrap transition-colors duration-300 ${
+                className={`absolute top-6 left-1/2 -translate-x-1/2 text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-colors duration-300 ${
                   i === current ? '' : 'hidden sm:block'
                 }`}
-                style={{ color: i === current ? '#E2E8F0' : done ? '#64748B' : '#334155' }}
+                style={{ color: i === current ? '#E2E8F0' : done ? '#94A3B8' : '#475569' }}
               >
                 {label}
               </span>

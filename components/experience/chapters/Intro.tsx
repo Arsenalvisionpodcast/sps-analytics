@@ -69,11 +69,11 @@ export default function Intro({ onNext }: ChapterProps) {
               className="relative w-64 rounded-xl px-5 py-4 text-left font-mono"
               style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)' }}
             >
-              <div className="text-[10px] uppercase tracking-widest text-slate-500">
+              <div className="text-xs uppercase tracking-widest text-slate-400">
                 {HERO_SALE.partner} · {HERO_SALE.store}
               </div>
-              <div className="text-[10px] text-slate-600 mb-3">{HERO_SALE.time}</div>
-              <div className="flex justify-between text-xs text-slate-200 mb-3">
+              <div className="text-xs text-slate-500 mb-3">{HERO_SALE.time}</div>
+              <div className="flex justify-between text-sm text-slate-200 mb-3">
                 <span>{PRODUCT.name.toUpperCase()} {PRODUCT.sku}</span>
                 <span>× 1</span>
               </div>
@@ -91,7 +91,7 @@ export default function Intro({ onNext }: ChapterProps) {
               </div>
               {phase >= 1 && (
                 <motion.div
-                  className="absolute -top-3 -right-3 px-2 py-0.5 rounded-md text-[10px] font-bold text-emerald-300"
+                  className="absolute -top-3 -right-3 px-2 py-0.5 rounded-md text-xs font-bold text-emerald-300"
                   style={{ background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(52,211,153,0.4)' }}
                   initial={{ scale: 0 }}
                   animate={{ scale: [0, 1.25, 1] }}
@@ -117,14 +117,14 @@ export default function Intro({ onNext }: ChapterProps) {
       </div>
 
       {/* Copy */}
-      <div className="relative max-w-2xl min-h-[230px]">
+      <div className="relative max-w-2xl min-h-[15rem]">
         <AnimatePresence>
           {phase >= 2 && (
             <motion.div
               key="line"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-cyan-300 mb-3"
+              className="text-[0.8125rem] sm:text-sm font-bold uppercase tracking-widest text-cyan-300 mb-3"
             >
               {PRODUCT.name} · {HERO_SALE.partner} {HERO_SALE.store} · {HERO_SALE.time}
             </motion.div>
@@ -135,7 +135,7 @@ export default function Intro({ onNext }: ChapterProps) {
             <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05] mb-4">
               Every sale is a <span className="text-gradient-blue">signal.</span>
             </h1>
-            <p className="text-slate-400 text-sm sm:text-lg leading-relaxed mb-7">
+            <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-7">
               This one holds the answer to whether you&apos;re in stock, priced right, and ready for your next
               buyer review. It&apos;s one of thousands, across every store and every channel, every day.{' '}
               <span className="text-slate-200">What happens to it next decides everything.</span>

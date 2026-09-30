@@ -19,7 +19,7 @@ export default function ModeSwitch({ mode, onToggle, prompt }: ModeSwitchProps) 
         aria-checked={on}
         aria-label="Turn on SPS Decision Intelligence"
         onClick={onToggle}
-        className="group relative flex items-center gap-3 pl-4 pr-2 sm:pl-5 py-1.5 rounded-full transition-colors duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+        className="group relative flex items-center gap-2 sm:gap-3 pl-3.5 pr-1.5 sm:pl-5 sm:pr-2 py-1.5 rounded-full transition-colors duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
         style={{
           background: on ? 'rgba(37,99,235,0.14)' : 'rgba(248,113,113,0.08)',
           border: `1px solid ${on ? 'rgba(34,211,238,0.35)' : 'rgba(248,113,113,0.3)'}`,
@@ -35,8 +35,8 @@ export default function ModeSwitch({ mode, onToggle, prompt }: ModeSwitchProps) 
           />
         )}
         <span
-          className="text-[11px] sm:text-xs font-bold uppercase tracking-widest transition-colors duration-300"
-          style={{ color: on ? '#475569' : '#FCA5A5' }}
+          className="text-[0.8125rem] sm:text-sm font-bold sm:uppercase sm:tracking-widest transition-colors duration-300"
+          style={{ color: on ? '#64748B' : '#FCA5A5' }}
         >
           Without
         </span>
@@ -56,15 +56,15 @@ export default function ModeSwitch({ mode, onToggle, prompt }: ModeSwitchProps) 
         </span>
 
         <span
-          className="text-[11px] sm:text-xs font-bold uppercase tracking-widest pr-2 transition-colors duration-300 whitespace-nowrap"
-          style={{ color: on ? '#67E8F9' : '#64748B' }}
+          className="text-[0.8125rem] sm:text-sm font-bold sm:uppercase sm:tracking-widest pr-2 transition-colors duration-300 whitespace-nowrap"
+          style={{ color: on ? '#67E8F9' : '#94A3B8' }}
         >
           With <span className="hidden sm:inline">SPS </span>Decision Intelligence
         </span>
       </button>
 
       <motion.span
-        className="text-[10px] sm:text-[11px] font-medium h-4"
+        className="text-xs sm:text-[0.8125rem] font-medium h-4 short:hidden"
         animate={{ opacity: prompt && !on ? [0.5, 1, 0.5] : 0 }}
         transition={{ duration: 2, repeat: prompt && !on ? Infinity : 0 }}
         style={{ color: '#67E8F9' }}

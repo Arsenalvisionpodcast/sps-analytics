@@ -136,7 +136,7 @@ export default function ExperienceShell() {
   return (
     <MotionConfig reducedMotion="user">
       <div
-        className="relative w-full h-[100dvh] overflow-hidden flex flex-col text-white"
+        className="exp-shell relative w-full h-[100dvh] overflow-hidden flex flex-col text-white"
         style={{ background: '#030B18' }}
         onWheel={onWheel}
         onTouchStart={onTouchStart}
@@ -171,23 +171,23 @@ export default function ExperienceShell() {
         <NoiseField chaos={chaos} />
 
         {/* ── TOP BAR ── */}
-        <div className="relative z-10 flex items-center justify-between gap-4 px-4 sm:px-8 py-3 flex-shrink-0">
+        <div className="relative z-10 flex items-center justify-between gap-4 px-4 sm:px-8 py-3 short:py-2 flex-shrink-0">
           <a href="/" className="flex items-center gap-2.5 group">
             <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-md shadow-blue-400/20 overflow-hidden flex-shrink-0">
               <img src="/sps-logo-mark.png" alt="SPS Commerce" className="w-6 h-6 object-contain" />
             </div>
             <div>
-              <span className="text-white font-bold text-base tracking-tight group-hover:text-blue-300 transition-colors">
+              <span className="text-white font-bold text-lg tracking-tight group-hover:text-blue-300 transition-colors">
                 SPS Commerce
               </span>
-              <span className="block text-[10px] font-medium leading-none text-cyan-300">Decision Intelligence</span>
+              <span className="block text-xs font-medium leading-none text-cyan-300">Decision Intelligence</span>
             </div>
           </a>
           <div className="flex items-center gap-4">
             <SignalReadout chapter={chapter} mode={mode} />
             <a
               href="/"
-              className="text-slate-500 hover:text-slate-300 text-xs font-medium transition-colors"
+              className="text-slate-400 hover:text-slate-300 text-sm font-medium transition-colors"
               aria-label="Exit experience"
             >
               Exit ✕
@@ -205,7 +205,7 @@ export default function ExperienceShell() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25 }}
-                className="inline-block text-[10px] sm:text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-2"
+                className="inline-block text-xs sm:text-sm font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-2"
                 style={{
                   color: mode === 'with' ? '#67E8F9' : '#FCA5A5',
                   background: mode === 'with' ? 'rgba(34,211,238,0.08)' : 'rgba(248,113,113,0.08)',
@@ -231,12 +231,12 @@ export default function ExperienceShell() {
                 >
                   {chapter.title[mode]}
                 </h1>
-                <p className="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+                <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
                   {chapter.subtitle[mode]}
                 </p>
               </motion.div>
             </AnimatePresence>
-            <div className="mt-3">
+            <div className="mt-3 short:mt-2">
               <ModeSwitch mode={mode} onToggle={toggle} prompt={!flipped[current]} />
             </div>
           </div>
@@ -266,7 +266,7 @@ export default function ExperienceShell() {
           <button
             onClick={goPrev}
             disabled={current === 0}
-            className="px-3 sm:px-5 py-2 rounded-full text-sm font-medium text-slate-400 border border-white/10 hover:border-white/25 transition-colors disabled:opacity-20 disabled:cursor-not-allowed mb-4"
+            className="px-3 sm:px-5 py-2 rounded-full text-base font-medium text-slate-400 border border-white/10 hover:border-white/25 transition-colors disabled:opacity-20 disabled:cursor-not-allowed mb-4"
             aria-label="Previous chapter"
           >
             ←<span className="hidden sm:inline"> Back</span>
@@ -276,7 +276,7 @@ export default function ExperienceShell() {
           </div>
           <button
             onClick={isLast ? restart : goNext}
-            className="px-3 sm:px-6 py-2 rounded-full text-sm font-semibold transition-all duration-500 mb-4 whitespace-nowrap"
+            className="px-3 sm:px-6 py-2 rounded-full text-base font-semibold transition-all duration-500 mb-4 whitespace-nowrap"
             style={
               nextEmphasis
                 ? {

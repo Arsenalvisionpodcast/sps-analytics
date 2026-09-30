@@ -10,9 +10,9 @@ const SCATTER_ENDS = [78, 14, 60, 92, 30, 46]
 const INBOX_FLAGS = ['v3? FINAL?', 'late', 'login expired', 'columns changed', 'duplicate?', '']
 
 const STATS = [
-  { value: '12+', unit: 'hrs / week', label: 'collecting and reformatting before any analysis' },
-  { value: '6+', unit: 'portals', label: 'each with its own login, format, and schedule' },
-  { value: '0', unit: 'shared standard', label: 'no two partners define metrics the same way' },
+  { value: '12+', unit: 'hrs / week collecting' },
+  { value: '6+', unit: 'portals & logins' },
+  { value: '0', unit: 'shared standard' },
 ]
 
 function lanePath(i: number, on: boolean) {
@@ -26,8 +26,8 @@ export default function Scatter({ mode }: ChapterProps) {
   const on = mode === 'with'
 
   return (
-    <div className="w-full min-h-full flex items-center justify-center px-4 sm:px-8 py-4">
-      <div className="w-full max-w-6xl flex flex-col md:flex-row md:items-stretch gap-4 md:gap-0 md:h-[380px] lg:h-[400px]">
+    <div className="w-full min-h-full flex items-center justify-center px-4 sm:px-8 py-4 short:py-2">
+      <div className="w-full max-w-6xl flex flex-col md:flex-row md:items-stretch gap-4 md:gap-0 md:h-[24rem] short:md:h-[21rem]">
         {/* ── Channels ── */}
         <div className="grid grid-cols-2 md:grid-cols-1 md:grid-rows-6 gap-2 md:gap-0 md:w-[26%]">
           {CHANNELS.map((c, i) => (
@@ -47,10 +47,10 @@ export default function Scatter({ mode }: ChapterProps) {
               >
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: c.color }} />
-                  <span className="text-[11px] sm:text-xs font-semibold text-slate-200 truncate">{c.name}</span>
+                  <span className="text-[0.8125rem] sm:text-sm font-semibold text-slate-200 truncate">{c.name}</span>
                 </div>
                 <span
-                  className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded flex-shrink-0 transition-colors duration-500"
+                  className="text-[0.6875rem] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded flex-shrink-0 transition-colors duration-500"
                   style={{
                     color: on ? '#93C5FD' : '#FBBF24',
                     background: on ? 'rgba(59,130,246,0.12)' : 'rgba(251,191,36,0.1)',
@@ -127,15 +127,15 @@ export default function Scatter({ mode }: ChapterProps) {
                 <div className="flex items-center gap-3 mb-4">
                   <SignalOrb mode="with" size={30} />
                   <div>
-                    <div className="text-sm font-bold text-white">SPS Decision Intelligence</div>
-                    <div className="text-[11px] text-cyan-300">6 of 6 channels collected automatically</div>
+                    <div className="text-base font-bold text-white">SPS Decision Intelligence</div>
+                    <div className="text-[0.8125rem] text-cyan-300">6 of 6 channels collected automatically</div>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 mb-4">
                   {CHANNELS.map((c, i) => (
                     <motion.div
                       key={c.id}
-                      className="flex items-center gap-1.5 text-[11px] text-slate-300"
+                      className="flex items-center gap-1.5 text-[0.8125rem] text-slate-300"
                       initial={{ opacity: 0, x: -6 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.5 + i * 0.12 }}
@@ -148,11 +148,11 @@ export default function Scatter({ mode }: ChapterProps) {
                 <div className="flex gap-3 pt-3 border-t border-white/10">
                   <div className="flex-1">
                     <div className="text-xl font-extrabold text-gradient-blue">1,000+</div>
-                    <div className="text-[10px] text-slate-400 leading-snug">trading partners in the SPS network</div>
+                    <div className="text-xs text-slate-400 leading-snug">trading partners in the SPS network</div>
                   </div>
                   <div className="flex-1">
                     <div className="text-xl font-extrabold text-gradient-blue">0 hrs</div>
-                    <div className="text-[10px] text-slate-400 leading-snug">spent collecting. No logins, no downloads.</div>
+                    <div className="text-xs text-slate-400 leading-snug">spent collecting. No logins, no downloads.</div>
                   </div>
                 </div>
               </motion.div>
@@ -169,14 +169,14 @@ export default function Scatter({ mode }: ChapterProps) {
                   className="rounded-xl p-3 mb-3"
                   style={{ background: 'rgba(255,255,255,0.03)', border: '1px dashed rgba(248,113,113,0.3)' }}
                 >
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-red-300/80 mb-2">
+                  <div className="text-xs font-bold uppercase tracking-widest text-red-300/80 mb-2">
                     Your team&apos;s inbox · Monday 8:02 AM
                   </div>
                   <div className="space-y-1">
                     {CHANNELS.map((c, i) => (
                       <motion.div
                         key={c.id}
-                        className="flex items-center justify-between gap-2 px-2 py-1 rounded font-mono text-[10px]"
+                        className="flex items-center justify-between gap-2 px-2 py-1 rounded font-mono text-[0.8125rem]"
                         style={{ background: 'rgba(255,255,255,0.04)' }}
                         animate={{ x: [0, i % 2 ? 1.5 : -1.5, 0], rotate: [0, i % 2 ? 0.6 : -0.6, 0] }}
                         transition={{ duration: 0.4 + i * 0.07, repeat: Infinity, repeatDelay: 1.5 + i * 0.3 }}
@@ -187,19 +187,18 @@ export default function Scatter({ mode }: ChapterProps) {
                     ))}
                   </div>
                 </div>
-                <div className="grid grid-cols-3 md:grid-cols-1 gap-2">
+                <div className="grid grid-cols-3 gap-2">
                   {STATS.map((s, i) => (
                     <motion.div
                       key={s.unit}
-                      className="flex flex-col md:flex-row md:items-baseline gap-0.5 md:gap-2 rounded-lg px-3 py-2"
+                      className="flex flex-col gap-1 rounded-lg px-3 py-2.5"
                       style={{ background: 'rgba(248,113,113,0.06)', border: '1px solid rgba(248,113,113,0.15)' }}
                       initial={{ opacity: 0, y: 6 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 + i * 0.2 }}
                     >
-                      <span className="text-lg font-extrabold text-red-300 leading-none">{s.value}</span>
-                      <span className="text-[10px] font-bold text-red-200/80 uppercase tracking-wide">{s.unit}</span>
-                      <span className="hidden lg:inline text-[10px] text-slate-500 truncate">{s.label}</span>
+                      <span className="text-2xl font-extrabold text-red-300 leading-none">{s.value}</span>
+                      <span className="text-[0.8125rem] font-semibold text-red-100/80 leading-snug">{s.unit}</span>
                     </motion.div>
                   ))}
                 </div>

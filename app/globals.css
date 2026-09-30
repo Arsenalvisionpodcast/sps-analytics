@@ -103,3 +103,14 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
 }
+
+/* /experience: scale the whole stage (type, spacing, diagrams) on large displays and projectors */
+@media (min-width: 1536px) and (min-height: 880px) {
+  html:has(.exp-shell) { font-size: 17px; }
+}
+@media (min-width: 1800px) and (min-height: 900px) {
+  html:has(.exp-shell) { font-size: 19px; }
+}
+@media (min-width: 2400px) and (min-height: 1300px) {
+  html:has(.exp-shell) { font-size: 22px; }
+}

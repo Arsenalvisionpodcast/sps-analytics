@@ -6,6 +6,7 @@ import type { ChapterProps } from '../types'
 import { DESTINATIONS, DISRUPTIONS, TEAMS } from '../data'
 import TeamIcon from '@/components/ui/TeamIcon'
 
+// Hub geometry in viewBox units; the hub itself is sized in rem so it scales with the type
 const SIZE = 300
 const C = SIZE / 2
 const R = 112
@@ -46,12 +47,12 @@ export default function LiveResilient({ mode }: ChapterProps) {
   const spokeColor = red ? '#F87171' : on ? '#22D3EE' : 'rgba(148,163,184,0.3)'
 
   return (
-    <div className="w-full min-h-full flex items-center justify-center px-4 sm:px-8 py-4">
+    <div className="w-full min-h-full flex items-center justify-center px-4 sm:px-8 py-4 short:py-2">
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center">
         {/* ── Hub ── */}
         <div className="flex flex-col items-center">
-          <div className="relative" style={{ width: SIZE, height: SIZE }}>
-            <svg width={SIZE} height={SIZE} className="absolute inset-0 overflow-visible">
+          <div className="relative w-[21rem] h-[21rem] short:w-[18rem] short:h-[18rem] max-w-full">
+            <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="absolute inset-0 w-full h-full overflow-visible">
               {TEAMS.map((t, i) => {
                 const p = pos(i)
                 return (
@@ -89,8 +90,8 @@ export default function LiveResilient({ mode }: ChapterProps) {
 
             {/* center */}
             <motion.div
-              className="absolute rounded-full flex flex-col items-center justify-center text-center"
-              style={{ width: 104, height: 104, left: C - 52, top: C - 52, border: '1px solid' }}
+              className="absolute left-1/2 top-1/2 w-[7rem] h-[7rem] -ml-[3.5rem] -mt-[3.5rem] rounded-full flex flex-col items-center justify-center text-center"
+              style={{ border: '1px solid' }}
               animate={{
                 background: red ? 'rgba(127,29,29,0.5)' : on ? 'rgba(8,47,73,0.95)' : 'rgba(15,23,42,0.95)',
                 borderColor: red ? 'rgba(248,113,113,0.7)' : on ? 'rgba(34,211,238,0.6)' : 'rgba(100,116,139,0.35)',
@@ -112,14 +113,14 @@ export default function LiveResilient({ mode }: ChapterProps) {
                   transition={{ duration: 1 }}
                 />
               )}
-              <div className={`text-[10px] font-bold uppercase tracking-wider ${red ? 'text-red-200' : on ? 'text-cyan-200' : 'text-slate-400'}`}>
+              <div className={`text-xs font-bold uppercase tracking-wide leading-tight ${red ? 'text-red-200' : on ? 'text-cyan-200' : 'text-slate-400'}`}>
                 {red ? (on ? 'Detected…' : 'Reporting dark') : on ? 'Your warehouse' : 'Weekly export'}
               </div>
-              <div className="text-[9px] text-slate-400 mt-0.5 px-2 leading-tight">
+              <div className="text-xs text-slate-300 mt-0.5 px-2 leading-tight">
                 {red ? (on ? 'SPS resolving' : 'Manual fix needed') : on ? 'Live share' : 'Spreadsheet, manual'}
               </div>
               {live && (
-                <span className="mt-1 flex items-center gap-1 text-[9px] font-bold text-emerald-300">
+                <span className="mt-1 flex items-center gap-1 text-xs font-bold text-emerald-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> LIVE
                 </span>
               )}
@@ -129,7 +130,11 @@ export default function LiveResilient({ mode }: ChapterProps) {
             {TEAMS.map((t, i) => {
               const p = pos(i)
               return (
-                <div key={t.label} className="absolute flex flex-col items-center" style={{ left: p.x - 30, top: p.y - 20, width: 60 }}>
+                <div
+                  key={t.label}
+                  className="absolute w-[5.5rem] -ml-[2.75rem] -mt-[1.25rem] flex flex-col items-center"
+                  style={{ left: `${(p.x / SIZE) * 100}%`, top: `${(p.y / SIZE) * 100}%` }}
+                >
                   <motion.div
                     className="w-10 h-10 rounded-full flex items-center justify-center"
                     animate={{
@@ -141,24 +146,23 @@ export default function LiveResilient({ mode }: ChapterProps) {
                     transition={{ duration: 0.4, delay: live ? i * 0.1 : 0 }}
                     style={{ border: '1px solid' }}
                   >
-                    {red ? <span className="text-sm font-bold">!</span> : <TeamIcon icon={t.icon} />}
+                    {red ? <span className="text-base font-bold">!</span> : <TeamIcon icon={t.icon} />}
                   </motion.div>
-                  <span className={`mt-1 text-[9px] font-semibold text-center leading-tight ${on && !red ? 'text-slate-300' : 'text-slate-600'}`}>
+                  <span className={`mt-1 text-xs font-semibold text-center leading-tight ${on && !red ? 'text-slate-200' : 'text-slate-400'}`}>
                     {t.label}
                   </span>
-                  {!on && !red && <span className="text-[8px] text-amber-400/70">stale</span>}
                 </div>
               )
             })}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 mt-2">
+          <div className="flex flex-wrap justify-center gap-2 mt-8 short:mt-6">
             {DESTINATIONS.map(d => (
               <span
                 key={d.name}
-                className="flex items-center gap-1.5 text-[10px] font-semibold px-2.5 py-1 rounded-full transition-all duration-500"
+                className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full transition-all duration-500"
                 style={{
-                  color: on ? d.color : '#475569',
+                  color: on ? d.color : '#64748B',
                   background: on ? `${d.color}14` : 'rgba(255,255,255,0.03)',
                   border: `1px solid ${on ? `${d.color}40` : 'rgba(255,255,255,0.06)'}`,
                 }}
@@ -173,8 +177,8 @@ export default function LiveResilient({ mode }: ChapterProps) {
 
         {/* ── Stress test ── */}
         <div>
-          <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">Stress test</div>
-          <div className="text-sm text-slate-300 mb-3">Throw a real-world disruption at the pipeline:</div>
+          <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Stress test</div>
+          <div className="text-base text-slate-300 mb-3">Throw a real-world disruption at the pipeline:</div>
           <div className="grid grid-cols-2 gap-2 mb-4">
             {DISRUPTIONS.map(d => {
               const active = d.id === eventId
@@ -182,7 +186,7 @@ export default function LiveResilient({ mode }: ChapterProps) {
                 <button
                   key={d.id}
                   onClick={() => trigger(d.id)}
-                  className="text-left text-xs font-semibold px-3 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+                  className="text-left text-sm font-semibold px-3 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
                   style={{
                     color: active ? '#fff' : '#CBD5E1',
                     background: !active ? 'rgba(255,255,255,0.04)' : status === 'healed' ? 'rgba(52,211,153,0.12)' : 'rgba(248,113,113,0.15)',
@@ -195,7 +199,7 @@ export default function LiveResilient({ mode }: ChapterProps) {
             })}
           </div>
 
-          <div className="min-h-[108px]">
+          <div className="min-h-[7rem]">
             <AnimatePresence mode="wait">
               {event ? (
                 <motion.div
@@ -211,14 +215,14 @@ export default function LiveResilient({ mode }: ChapterProps) {
                       : { background: 'rgba(248,113,113,0.07)', border: '1px solid rgba(248,113,113,0.3)' }
                   }
                 >
-                  <div className={`text-[10px] font-bold uppercase tracking-widest mb-1 ${status === 'healed' ? 'text-emerald-300' : 'text-red-300'}`}>
+                  <div className={`text-xs font-bold uppercase tracking-widest mb-1 ${status === 'healed' ? 'text-emerald-300' : 'text-red-300'}`}>
                     {status === 'healed' ? '✓ SPS handles it' : status === 'hit' ? 'Disruption detected…' : '✗ Without SPS'}
                   </div>
-                  <div className="text-sm text-slate-200 leading-snug">
+                  <div className="text-base text-slate-200 leading-snug">
                     {status === 'healed' ? event.with : status === 'hit' ? `${event.label}.` : event.without}
                   </div>
                   {status === 'broken' && (
-                    <div className="text-[11px] text-slate-500 mt-2">Now flip the switch and try it again.</div>
+                    <div className="text-[0.8125rem] text-slate-400 mt-2">Now flip the switch and try it again.</div>
                   )}
                 </motion.div>
               ) : (
@@ -227,7 +231,7 @@ export default function LiveResilient({ mode }: ChapterProps) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="rounded-xl p-4 text-xs text-slate-500"
+                  className="rounded-xl p-4 text-sm text-slate-400"
                   style={{ border: '1px dashed rgba(255,255,255,0.1)' }}
                 >
                   Pick a disruption above to see what happens to every team downstream.
@@ -243,7 +247,7 @@ export default function LiveResilient({ mode }: ChapterProps) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-wrap gap-x-5 gap-y-1 mt-4 text-xs text-slate-400"
+                className="flex flex-wrap gap-x-5 gap-y-1 mt-4 text-sm text-slate-400"
               >
                 <span><span className="font-bold text-white">1,000+</span> trading partners covered</span>
                 <span><span className="font-bold text-white">Automatic</span> · no manual work</span>

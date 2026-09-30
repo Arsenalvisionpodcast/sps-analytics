@@ -25,8 +25,8 @@ export default function Match({ mode }: ChapterProps) {
   const on = mode === 'with'
 
   return (
-    <div className="w-full min-h-full flex items-center justify-center px-4 sm:px-8 py-4">
-      <div className="w-full max-w-6xl flex flex-col md:flex-row md:items-stretch gap-4 md:gap-0 md:h-[320px]">
+    <div className="w-full min-h-full flex items-center justify-center px-4 sm:px-8 py-4 short:py-2">
+      <div className="w-full max-w-6xl flex flex-col md:flex-row md:items-stretch gap-4 md:gap-0 md:h-[20rem]">
         {/* ── Partner naming ── */}
         <div className="grid grid-cols-1 md:grid-rows-3 gap-2 md:gap-0 md:w-[32%]">
           {PARTNER_NAMES.map((p, i) => (
@@ -42,14 +42,14 @@ export default function Match({ mode }: ChapterProps) {
                 style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${p.color}40` }}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: p.color }}>
+                  <span className="text-xs font-bold uppercase tracking-widest" style={{ color: p.color }}>
                     {p.partner}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-500">
+                  <span className="text-xs font-mono text-slate-400">
                     {p.idLabel} {p.id}
                   </span>
                 </div>
-                <div className="font-mono text-xs text-slate-200 truncate">“{p.name}”</div>
+                <div className="font-mono text-sm text-slate-200 truncate">“{p.name}”</div>
               </div>
             </motion.div>
           ))}
@@ -130,10 +130,10 @@ export default function Match({ mode }: ChapterProps) {
               >
                 <KeyIcon color={on ? '#67E8F9' : '#475569'} />
               </motion.div>
-              <div className={`text-[10px] font-bold uppercase tracking-wider mt-1 ${on ? 'text-cyan-200' : 'text-slate-500'}`}>
+              <div className={`text-xs font-bold uppercase tracking-wider mt-1 ${on ? 'text-cyan-200' : 'text-slate-400'}`}>
                 Your item file
               </div>
-              {!on && <div className="text-[9px] text-slate-600">not connected</div>}
+              {!on && <div className="text-[0.6875rem] text-slate-500">not connected</div>}
             </motion.div>
           </div>
         </div>
@@ -155,7 +155,7 @@ export default function Match({ mode }: ChapterProps) {
                   boxShadow: '0 0 40px rgba(34,211,238,0.12)',
                 }}
               >
-                <div className="text-[10px] font-bold uppercase tracking-widest text-cyan-300 mb-2">
+                <div className="text-xs font-bold uppercase tracking-widest text-cyan-300 mb-2">
                   One record · your taxonomy
                 </div>
                 <div className="flex flex-wrap items-center gap-1 mb-3">
@@ -167,19 +167,19 @@ export default function Match({ mode }: ChapterProps) {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.7 + i * 0.1 }}
                     >
-                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-white/10 text-white">{t}</span>
-                      {i < TAXONOMY.length - 1 && <span className="text-cyan-400/60 text-[10px]">›</span>}
+                      <span className="text-[0.8125rem] font-semibold px-2 py-0.5 rounded bg-white/10 text-white">{t}</span>
+                      {i < TAXONOMY.length - 1 && <span className="text-cyan-400/60 text-xs">›</span>}
                     </motion.span>
                   ))}
                 </div>
                 <div className="flex items-end justify-between">
-                  <div className="font-mono text-[11px] text-slate-400">
+                  <div className="font-mono text-[0.8125rem] text-slate-400">
                     UPC {PRODUCT.upc}
-                    <div className="text-slate-500">matched across 3 partners</div>
+                    <div className="text-slate-400">matched across 3 partners</div>
                   </div>
                   <div className="text-right">
                     <div className="text-4xl font-extrabold text-gradient-blue tabular-nums leading-none">{MATCHED_UNITS}</div>
-                    <div className="text-[10px] text-slate-400">units sold</div>
+                    <div className="text-xs text-slate-400">units sold</div>
                   </div>
                 </div>
               </motion.div>
@@ -191,7 +191,7 @@ export default function Match({ mode }: ChapterProps) {
                 exit={{ opacity: 0 }}
                 className="w-full"
               >
-                <div className="text-[10px] font-bold uppercase tracking-widest text-red-300/80 mb-2">Your report</div>
+                <div className="text-xs font-bold uppercase tracking-widest text-red-300/80 mb-2">Your report</div>
                 <div className="space-y-2">
                   {PARTNER_NAMES.map(p => (
                     <div
@@ -200,14 +200,14 @@ export default function Match({ mode }: ChapterProps) {
                       style={{ background: 'rgba(248,113,113,0.05)', border: '1px solid rgba(248,113,113,0.2)' }}
                     >
                       <div className="min-w-0">
-                        <div className="font-mono text-[11px] text-slate-200 truncate">{p.name}</div>
-                        <div className="text-[10px] text-red-300/80">not found in your catalog</div>
+                        <div className="font-mono text-[0.8125rem] text-slate-200 truncate">{p.name}</div>
+                        <div className="text-xs text-red-300/80">not found in your catalog</div>
                       </div>
-                      <span className="font-mono text-sm text-slate-300 flex-shrink-0">{p.units}</span>
+                      <span className="font-mono text-base text-slate-300 flex-shrink-0">{p.units}</span>
                     </div>
                   ))}
                 </div>
-                <div className="text-[11px] text-slate-400 mt-2">
+                <div className="text-[0.8125rem] text-slate-400 mt-2">
                   Three “products.” It&apos;s one. Nobody can see that it sold {MATCHED_UNITS}.
                 </div>
               </motion.div>

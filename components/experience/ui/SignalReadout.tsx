@@ -26,7 +26,7 @@ export default function SignalReadout({ chapter, mode }: SignalReadoutProps) {
       }}
     >
       <div className="text-right">
-        <div className="text-[9px] uppercase tracking-widest text-slate-500 font-semibold">{chapter.readout.label}</div>
+        <div className="text-[0.6875rem] uppercase tracking-widest text-slate-400 font-semibold">{chapter.readout.label}</div>
         <AnimatePresence mode="wait">
           <motion.div
             key={`${chapter.id}-${mode}`}
@@ -34,7 +34,7 @@ export default function SignalReadout({ chapter, mode }: SignalReadoutProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.25 }}
-            className="text-sm font-bold tabular-nums"
+            className="text-base font-bold tabular-nums"
             style={{ color: on ? '#67E8F9' : '#FCA5A5' }}
           >
             {chapter.readout[mode]}
@@ -43,7 +43,7 @@ export default function SignalReadout({ chapter, mode }: SignalReadoutProps) {
       </div>
       <div className="w-px h-7 bg-white/10" />
       <div>
-        <div className="text-[9px] uppercase tracking-widest text-slate-500 font-semibold">Signal</div>
+        <div className="text-[0.6875rem] uppercase tracking-widest text-slate-400 font-semibold">Signal</div>
         <div className="flex items-center gap-2">
           <div className="w-16 h-1.5 rounded-full bg-white/10 overflow-hidden">
             <motion.div
@@ -55,7 +55,7 @@ export default function SignalReadout({ chapter, mode }: SignalReadoutProps) {
               }}
             />
           </div>
-          <span className="text-[11px] font-semibold w-16" style={{ color: on ? '#67E8F9' : '#FCA5A5' }}>
+          <span className="text-[0.8125rem] font-semibold w-16" style={{ color: on ? '#67E8F9' : '#FCA5A5' }}>
             {status}
           </span>
         </div>
